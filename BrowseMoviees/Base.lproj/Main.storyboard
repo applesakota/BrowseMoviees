@@ -23,21 +23,24 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1uW-8W-lKr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                 <state key="normal" title="Get Started">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="AUN-F5-zCP" kind="presentation" modalPresentationStyle="fullScreen" id="HNn-aO-4uO"/>
+                                </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-movie-64" translatesAutoresizingMaskIntoConstraints="NO" id="KgO-AQ-yhP">
-                                <rect key="frame" x="132" y="237.5" width="150" height="150"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="entryImage" translatesAutoresizingMaskIntoConstraints="NO" id="KgO-AQ-yhP">
+                                <rect key="frame" x="132" y="238" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="CIN-Gz-Tbh"/>
                                     <constraint firstAttribute="width" secondItem="KgO-AQ-yhP" secondAttribute="height" multiplier="1:1" id="vEL-fa-cMm"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gy0-pC-oGl">
-                                <rect key="frame" x="10" y="437.5" width="394" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="10" y="438" width="394" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -64,9 +67,25 @@
             </objects>
             <point key="canvasLocation" x="-190" y="85"/>
         </scene>
+        <!--Register View Controller-->
+        <scene sceneID="c53-hw-j0m">
+            <objects>
+                <viewController id="AUN-F5-zCP" customClass="RegisterViewController" customModule="BrowseMoviees" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ClB-NM-Mgo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YR9-sp-LL6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yvk-0h-Iaj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F8E-ka-Yhq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671" y="84"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="icons8-movie-64" width="64" height="64"/>
+        <image name="entryImage" width="500" height="500"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
