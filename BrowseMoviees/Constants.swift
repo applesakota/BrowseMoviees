@@ -13,10 +13,12 @@ struct Constants {
     struct Design {
         struct Color {
             static let Gray = UIColor.lightGray
+            static let Black = UIColor.black
             static let DarkGray = UIColor.darkGray
             static let White = UIColor.white
             static let GrayCG = Gray.cgColor
             static let DarkGrayCG = DarkGray.cgColor
+            static let BlackCG = Black.cgColor
         }
     }
 }
