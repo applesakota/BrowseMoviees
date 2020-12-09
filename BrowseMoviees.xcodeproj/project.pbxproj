@@ -37,6 +37,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB8D9F5525813AA500DA1D0D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB92001D2580F8B900BA949D /* LaunchScreen.storyboard */,
+				EB9200122580F8B500BA949D /* AppDelegate.swift */,
+				EB9200142580F8B500BA949D /* SceneDelegate.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB8D9F5725813BC800DA1D0D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EB9200162580F8B500BA949D /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		EB9200062580F8B500BA949D = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +74,11 @@
 		EB9200112580F8B500BA949D /* BrowseMoviees */ = {
 			isa = PBXGroup;
 			children = (
-				EB9200122580F8B500BA949D /* AppDelegate.swift */,
-				EB9200142580F8B500BA949D /* SceneDelegate.swift */,
-				EB9200162580F8B500BA949D /* ViewController.swift */,
+				EB8D9F5725813BC800DA1D0D /* ViewControllers */,
+				EB8D9F5525813AA500DA1D0D /* Supporting Files */,
+				EB9200202580F8B900BA949D /* Info.plist */,
 				EB9200182580F8B500BA949D /* Main.storyboard */,
 				EB92001B2580F8B900BA949D /* Assets.xcassets */,
-				EB92001D2580F8B900BA949D /* LaunchScreen.storyboard */,
-				EB9200202580F8B900BA949D /* Info.plist */,
 			);
 			path = BrowseMoviees;
 			sourceTree = "<group>";
