@@ -12,7 +12,7 @@ class SpashViewController: UIViewController {
     
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var getStartedButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -22,8 +22,6 @@ class SpashViewController: UIViewController {
         infoLabel.text = "It's movie time!"
         getStartedButton.layer.cornerRadius = 20
     }
-    
-
 }
 
 
