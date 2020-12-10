@@ -18,6 +18,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var helperLabel: UILabel!
     @IBOutlet weak var helperButton: UIButton!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -25,6 +26,10 @@ class RegisterViewController: UIViewController {
     }
     func configureUI() {
         view.backgroundColor = Constants.Design.Color.Gray
+        self.fullNameTextField.delegate = self
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        self.dateOfBirthTextField.delegate = self
         fullNameTextField.layer.borderWidth = 2
         fullNameTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
         emailTextField.layer.borderWidth = 2
@@ -36,18 +41,25 @@ class RegisterViewController: UIViewController {
         registerButtonOutlet.layer.backgroundColor = Constants.Design.Color.BlackCG
         registerButtonOutlet.setTitleColor(Constants.Design.Color.White, for: .normal)
     }
-    
     func setButtonLabel(labelText: String, buttonText: String) {
         helperLabel.text = labelText
         helperLabel.textColor = Constants.Design.Color.DarkGray
         helperButton.setTitle(buttonText, for: .normal)
-        
     }
-    
-    
     //MARK: IBAction
     @IBAction func registerButton(_ sender: Any) {
+        AuthenticateManager.shared.createUser(name: fullNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!) { (error) in
+            self.presentError(message: error.localizedDescription)
+            
+        } successHandler: {
+            print(UserManager.shared.user?.name)
+        }
     }
-    
-
+}
+//MARK: Extensions - TextField
+extension RegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }

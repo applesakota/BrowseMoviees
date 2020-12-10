@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		EB8D9F5E25814CAB00DA1D0D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F5D25814CAB00DA1D0D /* RegisterViewController.swift */; };
 		EB8D9F6225814E2A00DA1D0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F6125814E2A00DA1D0D /* Constants.swift */; };
+		EB8D9F6925821FDD00DA1D0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F6825821FDD00DA1D0D /* User.swift */; };
+		EB8D9F6E2582205E00DA1D0D /* AuthenticateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F6D2582205E00DA1D0D /* AuthenticateManager.swift */; };
+		EB8D9F71258220E400DA1D0D /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F70258220E400DA1D0D /* Typealias.swift */; };
+		EB8D9F7425823F0300DA1D0D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F7325823F0300DA1D0D /* UserManager.swift */; };
+		EB8D9F772582AB4200DA1D0D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F762582AB4200DA1D0D /* LoginViewController.swift */; };
+		EB8D9F7A2582AD7C00DA1D0D /* UIKitextensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F792582AD7C00DA1D0D /* UIKitextensions.swift */; };
 		EB9200132580F8B500BA949D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9200122580F8B500BA949D /* AppDelegate.swift */; };
 		EB9200152580F8B500BA949D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9200142580F8B500BA949D /* SceneDelegate.swift */; };
 		EB9200172580F8B500BA949D /* SpashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9200162580F8B500BA949D /* SpashViewController.swift */; };
@@ -20,6 +26,12 @@
 /* Begin PBXFileReference section */
 		EB8D9F5D25814CAB00DA1D0D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EB8D9F6125814E2A00DA1D0D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EB8D9F6825821FDD00DA1D0D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EB8D9F6D2582205E00DA1D0D /* AuthenticateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateManager.swift; sourceTree = "<group>"; };
+		EB8D9F70258220E400DA1D0D /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		EB8D9F7325823F0300DA1D0D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		EB8D9F762582AB4200DA1D0D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EB8D9F792582AD7C00DA1D0D /* UIKitextensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitextensions.swift; sourceTree = "<group>"; };
 		EB92000F2580F8B500BA949D /* BrowseMoviees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrowseMoviees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9200122580F8B500BA949D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB9200142580F8B500BA949D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +68,7 @@
 			children = (
 				EB9200162580F8B500BA949D /* SpashViewController.swift */,
 				EB8D9F5D25814CAB00DA1D0D /* RegisterViewController.swift */,
+				EB8D9F762582AB4200DA1D0D /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -64,8 +77,34 @@
 			isa = PBXGroup;
 			children = (
 				EB8D9F6125814E2A00DA1D0D /* Constants.swift */,
+				EB8D9F70258220E400DA1D0D /* Typealias.swift */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		EB8D9F652582156900DA1D0D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EB8D9F792582AD7C00DA1D0D /* UIKitextensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EB8D9F6725821FD200DA1D0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB8D9F6825821FDD00DA1D0D /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EB8D9F6C2582203F00DA1D0D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EB8D9F6D2582205E00DA1D0D /* AuthenticateManager.swift */,
+				EB8D9F7325823F0300DA1D0D /* UserManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		EB9200062580F8B500BA949D = {
@@ -87,6 +126,9 @@
 		EB9200112580F8B500BA949D /* BrowseMoviees */ = {
 			isa = PBXGroup;
 			children = (
+				EB8D9F6C2582203F00DA1D0D /* Services */,
+				EB8D9F6725821FD200DA1D0D /* Model */,
+				EB8D9F652582156900DA1D0D /* Extensions */,
 				EB8D9F6025814E1700DA1D0D /* Constants */,
 				EB8D9F5725813BC800DA1D0D /* ViewControllers */,
 				EB8D9F5525813AA500DA1D0D /* Supporting Files */,
@@ -168,10 +210,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB8D9F7425823F0300DA1D0D /* UserManager.swift in Sources */,
+				EB8D9F7A2582AD7C00DA1D0D /* UIKitextensions.swift in Sources */,
 				EB8D9F6225814E2A00DA1D0D /* Constants.swift in Sources */,
 				EB9200172580F8B500BA949D /* SpashViewController.swift in Sources */,
+				EB8D9F6925821FDD00DA1D0D /* User.swift in Sources */,
+				EB8D9F6E2582205E00DA1D0D /* AuthenticateManager.swift in Sources */,
 				EB9200132580F8B500BA949D /* AppDelegate.swift in Sources */,
 				EB9200152580F8B500BA949D /* SceneDelegate.swift in Sources */,
+				EB8D9F71258220E400DA1D0D /* Typealias.swift in Sources */,
+				EB8D9F772582AB4200DA1D0D /* LoginViewController.swift in Sources */,
 				EB8D9F5E25814CAB00DA1D0D /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

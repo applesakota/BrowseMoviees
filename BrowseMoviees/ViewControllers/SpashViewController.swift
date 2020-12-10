@@ -21,15 +21,10 @@ class SpashViewController: UIViewController {
     func configureUI() {
         infoLabel.text = "It's movie time!"
         infoLabel.textColor = Constants.Design.Color.White
-        
-        
         getStartedButton.layer.cornerRadius = 20
         getStartedButton.layer.backgroundColor = Constants.Design.Color.GrayCG
         getStartedButton.layer.borderWidth = 2
         getStartedButton.layer.borderColor = Constants.Design.Color.DarkGrayCG
-        
-        
-        
         view.backgroundColor = Constants.Design.Color.Gray
     }
 }
