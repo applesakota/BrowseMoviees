@@ -15,4 +15,9 @@ extension UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
+    func showMainScreen() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: "MainScreen")
+        present(controller, animated: true, completion: nil)
+    }
 }

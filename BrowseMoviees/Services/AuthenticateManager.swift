@@ -16,6 +16,7 @@ enum AuthenticateManagerError: Error {
     case nameMustContainsCharacters
     case emailError
     case errorSavingUser
+    case errorLoadinUSer
 }
 extension AuthenticateManagerError: LocalizedError {
     var errorDescription: String? {
@@ -32,11 +33,11 @@ extension AuthenticateManagerError: LocalizedError {
             return NSLocalizedString("Email not valid", comment: "")
         case .errorSavingUser:
             return NSLocalizedString("Error saving user", comment: "")
+        case .errorLoadinUSer:
+            return NSLocalizedString("User not found", comment: "")
         }
     }
 }
-
-
 class AuthenticateManager {
     static let shared = AuthenticateManager()
     
@@ -58,6 +59,20 @@ class AuthenticateManager {
         } else {
             errorHandler(AuthenticateManagerError.errorSavingUser)
             return
+        }
+    }
+    func signIn(email: String, password: String, errorHandler: @escaping ErrorHandler, successHandler: @escaping ()->Void) {
+        if let error = validateEmail(email: email) {
+            errorHandler(error)
+        }
+        if isPasswordValid(password: password) != nil {
+            errorHandler(AuthenticateManagerError.passwordIsEmpty)
+            return
+        }
+        if loadUserFromUserDefaults(email: email, password: password) {
+            successHandler()
+        } else {
+            errorHandler(AuthenticateManagerError.errorLoadinUSer)
         }
     }
     private func validateName(name: String) -> AuthenticateManagerError? {
@@ -88,6 +103,12 @@ class AuthenticateManager {
     func saveToUserDefaults(name: String, email:String, password: String) -> Bool {
         if UserManager.shared.getLastSignUser() != nil {
             UserManager.shared.initUser(name: name, email: email, password: password)
+            return true
+        }
+        return false
+    }
+    func loadUserFromUserDefaults(email: String, password: String) -> Bool {
+        if UserManager.shared.user?.email == email && UserManager.shared.user?.password == password {
             return true
         }
         return false

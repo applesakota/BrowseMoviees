@@ -46,13 +46,14 @@ class RegisterViewController: UIViewController {
         helperLabel.textColor = Constants.Design.Color.DarkGray
         helperButton.setTitle(buttonText, for: .normal)
     }
+
     //MARK: IBAction
     @IBAction func registerButton(_ sender: Any) {
         AuthenticateManager.shared.createUser(name: fullNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!) { (error) in
             self.presentError(message: error.localizedDescription)
             
         } successHandler: {
-            print(UserManager.shared.user?.name)
+            self.showMainScreen()
         }
     }
 }

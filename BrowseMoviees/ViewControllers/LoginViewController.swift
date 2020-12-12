@@ -36,6 +36,10 @@ class LoginViewController: UIViewController {
         passwordTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
         loginButtonOutlet.layer.backgroundColor = Constants.Design.Color.BlackCG
         loginButtonOutlet.setTitleColor(Constants.Design.Color.White, for: .normal)
+        if user != nil {
+            emailTextField.text = user?.email
+            passwordTextField.text = user?.password
+        }
         
     }
     func setButtonLabel(labelText: String, buttonText: String) {
@@ -46,16 +50,16 @@ class LoginViewController: UIViewController {
     
     //MARK: -Actions
     @IBAction func loginButtonAction(_ sender: Any) {
-        if UserManager.shared.getLastSignUser() != nil {
-            user = UserManager.shared.getLastSignUser()
-        } else {
+        AuthenticateManager.shared.signIn(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", errorHandler: { (error) in
             self.presentError(message: AuthenticateManagerError.emailError.localizedDescription)
+        }, successHandler: {
+            self.showMainScreen()
+        })
+    }
+}
+    extension LoginViewController: UITextFieldDelegate {
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
         }
     }
-}
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-}

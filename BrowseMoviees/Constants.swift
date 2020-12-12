@@ -19,6 +19,12 @@ struct Constants {
             static let GrayCG = Gray.cgColor
             static let DarkGrayCG = DarkGray.cgColor
             static let BlackCG = Black.cgColor
+            static let Gray2 = UIColor.systemGray
         }
     }
+    struct API {
+        static let API_KEY = "5147a0585ac769df0df957cb87b9e605"
+        static let BASE_URL = "https://api.themoviedb.org/3"
+    }
+    
 }

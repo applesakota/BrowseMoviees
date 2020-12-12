@@ -33,7 +33,6 @@ class UserManager {
         let userFromUserDefaults = User(name: name, email: email, password: password)
         user = userFromUserDefaults
     }
-    
     func getLastSignUser() -> User? {
         if isLogin,
            let name = UserDefaults.standard.string(forKey: UserManager.userDefaultNameKey),
@@ -43,5 +42,4 @@ class UserManager {
         }
         return user
     }
-
 }
