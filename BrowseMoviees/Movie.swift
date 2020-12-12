@@ -9,6 +9,7 @@
 import Foundation
 
 struct MovieList: Codable {
+    let dates: Dates?
     let page: Int
     let totalResults: Int?
     let totalPages: Int?
@@ -18,7 +19,15 @@ struct MovieList: Codable {
         case page
         case totalResults = "total_results"
         case totalPages = "total_pages"
-        case results
+        case results, dates
+    }
+}
+struct Dates: Codable {
+    let maximum: String?
+    let minimum: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case maximum, minimum
     }
 }
 
