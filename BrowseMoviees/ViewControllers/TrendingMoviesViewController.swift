@@ -46,6 +46,7 @@ class TrendingMoviesViewController: UIViewController {
     }
     @objc func movieProfile() {
         //Add new view Controllers
+        self.showProfileScreen()
     }
 }
 //Extensions

@@ -20,4 +20,10 @@ extension UIViewController {
         let controller = storyboard.instantiateViewController(identifier: "MainScreen")
         present(controller, animated: true, completion: nil)
     }
+    func showProfileScreen() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: "ProfileScreen")
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+    }
 }

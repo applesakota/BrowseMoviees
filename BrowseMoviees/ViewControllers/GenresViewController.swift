@@ -19,7 +19,6 @@ class GenresViewController: UIViewController {
             }
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         genresCollectionView.delegate = self
@@ -47,11 +46,8 @@ class GenresViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(movieProfile), imageName: "profile-user")
     }
     @objc func movieProfile() {
-        
+        self.showProfileScreen()
     }
-
-
-
 }
 extension GenresViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -69,6 +65,4 @@ extension GenresViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return CGSize(width: (view.bounds.width - 30) / 2, height: 100)
 
     }
-    
-    
 }

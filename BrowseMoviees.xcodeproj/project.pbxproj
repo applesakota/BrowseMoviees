@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB4CE7B12586414800B32D43 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE7B02586414800B32D43 /* ProfileViewController.swift */; };
 		EB8D9F5E25814CAB00DA1D0D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F5D25814CAB00DA1D0D /* RegisterViewController.swift */; };
 		EB8D9F6225814E2A00DA1D0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F6125814E2A00DA1D0D /* Constants.swift */; };
 		EB8D9F6925821FDD00DA1D0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D9F6825821FDD00DA1D0D /* User.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB4CE7B02586414800B32D43 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EB8D9F5D25814CAB00DA1D0D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EB8D9F6125814E2A00DA1D0D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EB8D9F6825821FDD00DA1D0D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				EB8D9F8C2582BA1300DA1D0D /* TrendingMoviesViewController.swift */,
 				EB8D9F9C2585811B00DA1D0D /* UpcomingMoviesViewController.swift */,
 				EB8D9FA425858D8800DA1D0D /* GenresViewController.swift */,
+				EB4CE7B02586414800B32D43 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			files = (
 				EB8D9FA525858D8800DA1D0D /* GenresViewController.swift in Sources */,
 				EB8D9F902583CE6900DA1D0D /* Movie.swift in Sources */,
+				EB4CE7B12586414800B32D43 /* ProfileViewController.swift in Sources */,
 				EB8D9F7425823F0300DA1D0D /* UserManager.swift in Sources */,
 				EB8D9F7A2582AD7C00DA1D0D /* UIKitextensions.swift in Sources */,
 				EB8D9F892582B72600DA1D0D /* MovieCell.swift in Sources */,
