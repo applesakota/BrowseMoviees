@@ -11,7 +11,7 @@ import Foundation
 
 class User: Codable, Equatable {
 
-    let name: String?
+    var name: String?
     var email: String
     var password: String
     

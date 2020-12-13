@@ -21,6 +21,7 @@ class GenreCell: UICollectionViewCell {
     }
     func configureUI(genre: Genre) {
         genreLabel.text = genre.name
+        genreLabel.textColor = Constants.Design.Color.DarkGray
         self.backgroundColor = Constants.Design.Color.Gray
     }
 

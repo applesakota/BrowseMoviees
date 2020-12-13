@@ -18,9 +18,22 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        userInteraction()
+        //userInteraction()
         // Do any additional setup after loading the view.
-        
+        self.navigationItem.title = "Profile"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(saveUser), imageName: "save-button")
+    }
+    @objc func saveUser() {
+        AuthenticateManager.shared.editUser(name: profileFullNameTextField.text ?? "", email: profileEmailTextField.text ?? "", password: profilePasswordTextField.text ?? "") { (error) in
+            self.presentError(message: error.localizedDescription)
+        } successHandler: {
+            self.presentComplete()
+        }
+    }
+    func presentComplete() {
+        let alert = UIAlertController(title: "Nice", message: "Success save your details", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     //ui

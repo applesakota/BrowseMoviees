@@ -75,6 +75,28 @@ class AuthenticateManager {
             errorHandler(AuthenticateManagerError.errorLoadinUSer)
         }
     }
+    func editUser(name: String, email: String, password: String, errorHandler: @escaping ErrorHandler, successHandler: @escaping ()->Void) {
+        if let error = validateName(name: name) {
+            errorHandler(error)
+            return
+        }
+        if let error = validateEmail(email: email) {
+            errorHandler(error)
+        }
+        if isPasswordValid(password: password) != nil {
+            errorHandler(AuthenticateManagerError.passwordIsEmpty)
+            return
+        }
+        if editUserFromUserDefaults(name: name, email: email, password: password) {
+            UserManager.shared.user?.name = name
+            UserManager.shared.user?.email = email
+            UserManager.shared.user?.password = password
+            successHandler()
+        } else {
+            errorHandler(AuthenticateManagerError.errorLoadinUSer)
+        }
+    }
+    
     private func validateName(name: String) -> AuthenticateManagerError? {
         if name.isEmpty {
             return AuthenticateManagerError.nameIsEmpty
@@ -107,8 +129,14 @@ class AuthenticateManager {
         }
         return false
     }
-    func loadUserFromUserDefaults(email: String, password: String) -> Bool {
+    private func loadUserFromUserDefaults(email: String, password: String) -> Bool {
         if UserManager.shared.user?.email == email && UserManager.shared.user?.password == password {
+            return true
+        }
+        return false
+    }
+    private func editUserFromUserDefaults(name: String, email: String, password: String) -> Bool {
+        if UserManager.shared.user != nil {
             return true
         }
         return false
