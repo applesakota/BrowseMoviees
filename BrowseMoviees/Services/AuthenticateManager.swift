@@ -96,7 +96,6 @@ class AuthenticateManager {
             errorHandler(AuthenticateManagerError.errorLoadinUSer)
         }
     }
-    
     private func validateName(name: String) -> AuthenticateManagerError? {
         if name.isEmpty {
             return AuthenticateManagerError.nameIsEmpty

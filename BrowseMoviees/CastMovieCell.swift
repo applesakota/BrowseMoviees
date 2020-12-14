@@ -16,6 +16,10 @@ class CastMovieCell: UITableViewCell {
     func configureUI()  {
         movieNameLabel.text = "Movie name"
         realNameLabel.text = "Real name"
+        realNameLabel.textColor = Constants.Design.Color.DarkGray
+        movieNameLabel.textColor = Constants.Design.Color.DarkGray
+        self.backgroundColor = Constants.Design.Color.Gray
+        self.isUserInteractionEnabled = false
     }
 
 }

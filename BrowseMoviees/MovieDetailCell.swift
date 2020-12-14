@@ -32,7 +32,15 @@ class MovieDetailCell: UITableViewCell {
         movieTextView.backgroundColor = Constants.Design.Color.Gray
         movieTextView.textColor = Constants.Design.Color.DarkGray
         self.backgroundColor = Constants.Design.Color.Gray
+        userInteraction()
         
     }
-
+    func userInteraction() {
+        movieTitleLabel.isUserInteractionEnabled = false
+        genreLabel.isUserInteractionEnabled = false
+        ratingLabel.isUserInteractionEnabled = false
+        movieTextView.isUserInteractionEnabled = false
+        ratingNumberLabel.isUserInteractionEnabled = false
+        self.isUserInteractionEnabled = false
+    }
 }
