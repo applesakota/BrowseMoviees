@@ -14,6 +14,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieDetailTableView: UITableView!
     
     var movieList: Movie?
+    var creditsList: CreditsList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,17 @@ class MovieDetailViewController: UIViewController {
         movieDetailTableView.dataSource = self
 
         // Do any additional setup after loading the view.
+        NetworkManager.shared.getCredits(from: movieList?.id ?? 0, endpoint: MovieListEndpoint.credits) { (error) in
+
+        } successHandler: { (model) in
+            if let model = model as? CreditsList {
+                self.creditsList = model
+                DispatchQueue.main.async {
+                    self.movieDetailTableView.reloadData()
+                }
+            }
+                   }
+
     }
     
 }
@@ -32,7 +44,7 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource 
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : 5
+        return section == 0 ? 1 : creditsList?.cast?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath == IndexPath(row: 0, section: 0) {
@@ -44,7 +56,8 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastMovieCell", for: indexPath) as? CastMovieCell else  { fatalError() }
-        cell.configureUI()
+        cell.configureUI(credits: (creditsList!.cast?[indexPath.row])!)
         return cell
     }
+    
 }

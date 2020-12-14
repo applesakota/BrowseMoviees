@@ -13,9 +13,9 @@ class CastMovieCell: UITableViewCell {
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var realNameLabel: UILabel!
     
-    func configureUI()  {
-        movieNameLabel.text = "Movie name"
-        realNameLabel.text = "Real name"
+    func configureUI(credits: Cast)  {
+        movieNameLabel.text = credits.name
+        realNameLabel.text = credits.originalName
         realNameLabel.textColor = Constants.Design.Color.DarkGray
         movieNameLabel.textColor = Constants.Design.Color.DarkGray
         self.backgroundColor = Constants.Design.Color.Gray

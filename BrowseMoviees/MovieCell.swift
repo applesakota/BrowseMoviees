@@ -21,8 +21,6 @@ class MovieCell: UICollectionViewCell {
         // Initialization code
         
     }
-    
-    
     func configureUI(movie: Movie) {
         movieTitleLabel.text = movie.title
         genreLabel.text = movie.title
