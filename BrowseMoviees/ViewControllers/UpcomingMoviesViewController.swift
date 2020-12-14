@@ -63,4 +63,8 @@ extension UpcomingMoviesViewController: UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (view.bounds.width - 30) / 2, height: 300)
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = result?.results[indexPath.row]
+        self.showMovieDetailScreen(with: data!)
+    }
 }

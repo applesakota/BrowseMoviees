@@ -26,4 +26,10 @@ extension UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
         
     }
+    func showMovieDetailScreen(with data: Movie) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: "MovieDetailViewController") as! MovieDetailViewController
+        controller.movieList = data
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
