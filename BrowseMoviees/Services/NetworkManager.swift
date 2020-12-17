@@ -13,6 +13,7 @@ enum MovieListEndpoint: String {
     case genre
     case upcoming
     case credits
+    case discover
 }
 enum NetworksErrors: Error {
     case networkError
@@ -101,6 +102,34 @@ class NetworkManager {
                     do {
                         let allCredits = try JSONDecoder().decode(CreditsList.self, from: jsonData)
                         successHandler(allCredits)
+                    }
+                    catch{
+                        errorHandler(NetworksErrors.invalidData)
+                    }
+                case 400...499:
+                    errorHandler(NetworksErrors.badURL)
+                case 500...599:
+                    errorHandler(NetworksErrors.server)
+                default:
+                    errorHandler(NetworksErrors.unknown)
+                }
+            }.resume()
+        }
+    }
+    func getMoviesFromGenre(from endpoint: MovieListEndpoint, genreID: Int, errorHandler: @escaping ErrorHandler, successHandler: @escaping SuccessHandler) {
+        if let url = URL(string: "\(Constants.API.BASE_URL)/\(endpoint.rawValue)/movie?api_key=\(Constants.API.API_KEY)&with_genres=\(genreID)") {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    return errorHandler(NetworksErrors.networkError)
+                }
+                switch httpResponse.statusCode {
+                case 200...299:
+                    guard let jsonData = data else {
+                        return errorHandler(NetworksErrors.invalidData)
+                    }
+                    do {
+                        let allMovies = try JSONDecoder().decode(MovieList.self, from: jsonData)
+                        successHandler(allMovies)
                     }
                     catch{
                         errorHandler(NetworksErrors.invalidData)

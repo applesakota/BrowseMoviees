@@ -32,4 +32,10 @@ extension UIViewController {
         controller.movieList = data
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    func showMoviesFromGenre(with genre: Genre) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: "MoviesListFromGenre") as! MoviesListFromGenreViewController
+        controller.genre = genre
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }

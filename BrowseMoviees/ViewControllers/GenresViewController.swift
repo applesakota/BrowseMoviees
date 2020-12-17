@@ -65,4 +65,8 @@ extension GenresViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return CGSize(width: (view.bounds.width - 30) / 2, height: 100)
 
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedGenre = genres[indexPath.row]
+        self.showMoviesFromGenre(with: selectedGenre)
+    }
 }
