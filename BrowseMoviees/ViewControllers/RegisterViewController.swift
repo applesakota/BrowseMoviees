@@ -10,6 +10,9 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
+    let picker = UIDatePicker()
+    let toolbar = UIToolbar()
+    
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -23,6 +26,30 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         setButtonLabel(labelText: "Already have account? Login", buttonText: "here")
+        showDatePicker()
+    }
+    //datePicker
+    func showDatePicker() {
+        picker.datePickerMode = .date
+        toolbar.sizeToFit()
+        if #available(iOS 13.4, *) {
+            picker.preferredDatePickerStyle = .wheels
+        } else {
+            
+        }
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneDatePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker))
+        toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
+        dateOfBirthTextField.inputAccessoryView = toolbar
+        dateOfBirthTextField.inputView = picker
+    }
+    @objc func doneDatePicker() {
+        dateOfBirthTextField.text = picker.date.convertToString()
+        self.view.endEditing(true)
+    }
+    @objc func cancelDatePicker() {
+        self.view.endEditing(true)
     }
     func configureUI() {
         view.backgroundColor = Constants.Design.Color.Gray

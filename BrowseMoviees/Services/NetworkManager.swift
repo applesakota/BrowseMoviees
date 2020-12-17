@@ -21,8 +21,6 @@ enum NetworksErrors: Error {
     case invalidData
     case unknown
 }
-
-
 class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
@@ -115,7 +113,6 @@ class NetworkManager {
                     errorHandler(NetworksErrors.unknown)
                 }
             }.resume()
-            
         }
     }
 }
