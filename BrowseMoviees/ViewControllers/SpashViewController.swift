@@ -13,6 +13,18 @@ class SpashViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var getStartedButton: UIButton!
 
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if UserManager.shared.isLogin {
+            self.showMainScreen()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()

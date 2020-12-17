@@ -80,6 +80,7 @@ class RegisterViewController: UIViewController {
             self.presentError(message: error.localizedDescription)
             
         } successHandler: {
+            UserManager.shared.isLogin(value: true)
             self.showMainScreen()
         }
     }
