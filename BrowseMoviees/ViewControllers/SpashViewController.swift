@@ -13,6 +13,7 @@ class SpashViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var getStartedButton: UIButton!
 
+    var user: User?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -20,7 +21,8 @@ class SpashViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if UserManager.shared.isLogin {
+        user = UserManager.shared.getLastSignUser()
+        if user != nil {
             self.showMainScreen()
         }
     }

@@ -38,4 +38,9 @@ extension UIViewController {
         controller.genre = genre
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    func showLoginScreen() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: "LoginScreen")
+        present(controller, animated: true, completion: nil)
+    }
 }

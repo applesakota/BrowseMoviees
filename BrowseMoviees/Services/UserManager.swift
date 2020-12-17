@@ -24,10 +24,6 @@ class UserManager {
     private static let userDefaultNameKey = "userDefaulNameKey"
     private static let userDefaultEmailKey = "userDefaulEmailKey"
     private static let userDefaultPasswordKey = "userDefaultPasswordKey"
-    private static let userDefaultIsLogin = "userDefaultIsLogin"
-    func isLogin(value: Bool) {
-        UserDefaults.standard.setValue(value, forKey: UserManager.userDefaultIsLogin)
-    }
     var isLogin: Bool {
         get {
             UserDefaults.standard.bool(forKey: UserManager.userDefaultKey)

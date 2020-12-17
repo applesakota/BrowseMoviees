@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePasswordTextField: UITextField!
     @IBOutlet weak var profileEmailTextField: UITextField!
     @IBOutlet weak var profileDateTextField: UITextField!
+    @IBOutlet weak var logoutButtonOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,15 @@ class ProfileViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    func presentReminder() {
+        let alert = UIAlertController(title: "Are you sure to logout", message: "Your data will be lost", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            UserManager.shared.user = nil
+            self.showLoginScreen()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
     //ui
     func configureUI() {
@@ -45,6 +55,9 @@ class ProfileViewController: UIViewController {
         self.profileDateTextField.delegate = self
         profileFullNameTextField.layer.borderWidth = 2
         profileFullNameTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
+        
+        logoutButtonOutlet.layer.backgroundColor = Constants.Design.Color.BlackCG
+        logoutButtonOutlet.setTitleColor(Constants.Design.Color.White, for: .normal)
         
         profilePasswordTextField.layer.borderWidth = 2
         profilePasswordTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
@@ -68,6 +81,10 @@ class ProfileViewController: UIViewController {
         profilePasswordTextField.isUserInteractionEnabled = false
         profileEmailTextField.isUserInteractionEnabled = false
         profileDateTextField.isUserInteractionEnabled = false
+    }
+    //MARK: -Actions
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        presentReminder()
     }
 }
 extension ProfileViewController: UITextFieldDelegate {

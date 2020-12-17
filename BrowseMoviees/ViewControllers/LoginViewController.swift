@@ -53,7 +53,6 @@ class LoginViewController: UIViewController {
         AuthenticateManager.shared.signIn(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", errorHandler: { (error) in
             self.presentError(message: AuthenticateManagerError.emailError.localizedDescription)
         }, successHandler: {
-            UserManager.shared.isLogin(value: true)
             self.showMainScreen()
         })
     }

@@ -73,7 +73,7 @@
         <!--Login View Controller-->
         <scene sceneID="0Ts-DH-SL9">
             <objects>
-                <viewController id="j2c-y6-jpz" customClass="LoginViewController" customModule="BrowseMoviees" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreen" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j2c-y6-jpz" customClass="LoginViewController" customModule="BrowseMoviees" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wx6-3F-Bf2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -507,19 +507,33 @@
                                     <constraint firstAttribute="width" secondItem="uaH-8N-Vni" secondAttribute="height" multiplier="15:8" id="XYK-xZ-vee"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3T-Sy-kGe">
+                                <rect key="frame" x="145" y="628" width="124" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tRD-AO-ssO"/>
+                                </constraints>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="lLj-BL-DcH" eventType="touchUpInside" id="557-NU-vwW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jez-pT-coK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Jez-pT-coK" firstAttribute="trailing" secondItem="XZP-yn-DLw" secondAttribute="trailing" constant="20" id="1QH-X1-gkz"/>
+                            <constraint firstItem="s3T-Sy-kGe" firstAttribute="centerX" secondItem="NUl-Pm-a9S" secondAttribute="centerX" id="4zt-Kq-uUk"/>
                             <constraint firstItem="uaH-8N-Vni" firstAttribute="centerX" secondItem="NUl-Pm-a9S" secondAttribute="centerX" id="DsI-eg-kht"/>
                             <constraint firstItem="XZP-yn-DLw" firstAttribute="leading" secondItem="Jez-pT-coK" secondAttribute="leading" constant="20" id="HEz-AG-Stg"/>
                             <constraint firstItem="XZP-yn-DLw" firstAttribute="centerX" secondItem="NUl-Pm-a9S" secondAttribute="centerX" id="N84-x8-MUH"/>
+                            <constraint firstItem="s3T-Sy-kGe" firstAttribute="top" secondItem="XZP-yn-DLw" secondAttribute="bottom" constant="50" id="UaI-cj-290"/>
+                            <constraint firstItem="s3T-Sy-kGe" firstAttribute="width" secondItem="NUl-Pm-a9S" secondAttribute="width" multiplier="0.3" id="gYf-JH-wx0"/>
                             <constraint firstItem="XZP-yn-DLw" firstAttribute="top" secondItem="uaH-8N-Vni" secondAttribute="bottom" constant="50" id="p5r-y6-Ku3"/>
                             <constraint firstItem="XZP-yn-DLw" firstAttribute="centerY" secondItem="NUl-Pm-a9S" secondAttribute="centerY" id="v94-OJ-fer"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="logoutButtonOutlet" destination="s3T-Sy-kGe" id="JsO-h1-K5f"/>
                         <outlet property="profileDateTextField" destination="ncC-g6-4QB" id="fxb-Wo-5iR"/>
                         <outlet property="profileEmailTextField" destination="4OD-Ez-YRd" id="kgV-U0-ORL"/>
                         <outlet property="profileFullNameTextField" destination="zYt-D1-eTM" id="ftO-xY-wO3"/>
