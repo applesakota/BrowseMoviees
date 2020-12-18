@@ -26,7 +26,6 @@ class SpashViewController: UIViewController {
             self.showMainScreen()
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()

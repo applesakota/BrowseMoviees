@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum MovieListEndpoint: String {
     case trending = "popular"
@@ -14,6 +15,10 @@ enum MovieListEndpoint: String {
     case upcoming
     case credits
     case discover
+}
+enum ImageSize: String {
+    case original = "original"
+    case forDetail = "w500"
 }
 enum NetworksErrors: Error {
     case networkError
@@ -143,6 +148,12 @@ class NetworkManager {
                 }
             }.resume()
         }
+    }
+    func getMoviesImage(for image: UIImageView, size: ImageSize, path: String, errorHandler: @escaping ErrorHandler, successHandler: @escaping SuccessHandler) {
+        if let url = URL(string: "\(Constants.API.BASE_IMAGE_URL)/\(size.rawValue)/\(path)") {
+            
+        }
+        errorHandler(NetworksErrors.badURL)
     }
 }
 

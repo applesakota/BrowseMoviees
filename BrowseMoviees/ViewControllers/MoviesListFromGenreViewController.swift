@@ -47,7 +47,6 @@ class MoviesListFromGenreViewController: UIViewController {
     @objc func movieProfile() {
         self.showProfileScreen()
     }
-    
 }
 extension MoviesListFromGenreViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     

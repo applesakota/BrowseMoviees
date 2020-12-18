@@ -22,7 +22,7 @@ class MovieDetailCell: UITableViewCell {
     func configureUI(movie: Movie) {
         movieTitleLabel.text = movie.title
         movieTitleLabel.textColor = Constants.Design.Color.DarkGray
-        genreLabel.text = "Genre"
+        genreLabel.text = "Genre" 
         genreLabel.textColor = Constants.Design.Color.DarkGray
         ratingLabel.text = "Rating: "
         ratingLabel.textColor = Constants.Design.Color.DarkGray
