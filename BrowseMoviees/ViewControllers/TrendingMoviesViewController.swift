@@ -36,6 +36,7 @@ class TrendingMoviesViewController: UIViewController {
     func configureUI() {
         setNavigation()
         trendingCollectionView.backgroundColor = Constants.Design.Color.BlackBacgroundColor
+        trendingCollectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
     func setNavigation() {
         navigationController?.navigationBar.barTintColor = Constants.Design.Color.BlackColor

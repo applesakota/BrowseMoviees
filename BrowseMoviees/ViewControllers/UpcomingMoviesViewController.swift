@@ -35,6 +35,7 @@ class UpcomingMoviesViewController: UIViewController {
     func configureUI() {
         setNavigation()
         upcomingMoviesCollectionView.backgroundColor = Constants.Design.Color.BlackBacgroundColor
+        upcomingMoviesCollectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
     func setNavigation() {
         navigationController?.navigationBar.barTintColor = Constants.Design.Color.BlackColor

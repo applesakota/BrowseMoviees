@@ -36,6 +36,7 @@ class MoviesListFromGenreViewController: UIViewController {
     func configureUI() {
         setNavigation()
         movieListCollectionView.backgroundColor = Constants.Design.Color.BlackBacgroundColor
+        movieListCollectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
     func setNavigation() {
         navigationController?.navigationBar.barTintColor = Constants.Design.Color.BlackColor

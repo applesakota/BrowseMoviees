@@ -67,6 +67,7 @@ class MovieDetailCell: UITableViewCell {
     //Animation
     func makeCircleLayer() {
         viewOutlet.backgroundColor = .clear
+        //track
         let trackLayer = CAShapeLayer()
         let circularPath = UIBezierPath(ovalIn: viewOutlet.bounds)
         trackLayer.path = circularPath.cgPath
@@ -75,6 +76,7 @@ class MovieDetailCell: UITableViewCell {
         trackLayer.fillColor = Constants.Design.Color.BlackColorCg
         trackLayer.lineCap = CAShapeLayerLineCap(rawValue: "round")
         viewOutlet.layer.addSublayer(trackLayer)
+        //shape
         shapeLayer.path = circularPath.cgPath
         shapeLayer.backgroundColor = Constants.Design.Color.White.cgColor
         shapeLayer.strokeColor = Constants.Design.Color.Red.cgColor
