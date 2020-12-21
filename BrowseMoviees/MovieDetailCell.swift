@@ -66,10 +66,7 @@ class MovieDetailCell: UITableViewCell {
             movieImageView.kf.setImage(with: url)
         }
         makeCircleLayer()
-        
     }
-    
-
     //Animation
     func makeCircleLayer() {
         viewOutlet.backgroundColor = .clear

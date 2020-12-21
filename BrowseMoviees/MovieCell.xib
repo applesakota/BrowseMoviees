@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,29 +38,54 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ad-GG-M3q">
+                        <rect key="frame" x="197" y="165" width="50" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixf-vV-uO2">
+                                <rect key="frame" x="8.5" y="17" width="33" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ixf-vV-uO2" firstAttribute="centerY" secondItem="2ad-GG-M3q" secondAttribute="centerY" id="NHA-1a-JQX"/>
+                            <constraint firstAttribute="width" secondItem="2ad-GG-M3q" secondAttribute="height" multiplier="1:1" id="ROl-WJ-kdf"/>
+                            <constraint firstAttribute="height" constant="50" id="bLB-Hg-DxD"/>
+                            <constraint firstItem="ixf-vV-uO2" firstAttribute="centerX" secondItem="2ad-GG-M3q" secondAttribute="centerX" id="ksb-QI-21z"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="T6A-ZL-uPd" secondAttribute="trailing" constant="10" id="2vd-Or-xDW"/>
                 <constraint firstAttribute="trailing" secondItem="EFV-mE-4Q9" secondAttribute="trailing" constant="10" id="9fG-d2-l6D"/>
+                <constraint firstItem="T6A-ZL-uPd" firstAttribute="top" secondItem="2ad-GG-M3q" secondAttribute="bottom" constant="15" id="Hb0-Hi-Nd1"/>
                 <constraint firstItem="T6A-ZL-uPd" firstAttribute="top" secondItem="EFV-mE-4Q9" secondAttribute="bottom" constant="10" id="Jeg-tE-z3g"/>
                 <constraint firstItem="EFV-mE-4Q9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="L6q-Lq-3Y5"/>
                 <constraint firstAttribute="bottom" secondItem="T6A-ZL-uPd" secondAttribute="bottom" constant="10" id="LQk-LX-dT2"/>
                 <constraint firstItem="EFV-mE-4Q9" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.7" id="PjW-1c-Xn4"/>
                 <constraint firstItem="EFV-mE-4Q9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="YaH-VS-YND"/>
                 <constraint firstItem="T6A-ZL-uPd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="iaD-R9-8zc"/>
+                <constraint firstAttribute="trailing" secondItem="2ad-GG-M3q" secondAttribute="trailing" constant="15" id="mB8-t1-3wN"/>
             </constraints>
             <size key="customSize" width="480" height="901"/>
             <connections>
                 <outlet property="genreLabel" destination="Yhc-6m-a0N" id="bbF-Xm-8XE"/>
                 <outlet property="movieImageView" destination="EFV-mE-4Q9" id="hnS-0d-bws"/>
+                <outlet property="movieRatingLabel" destination="ixf-vV-uO2" id="gpO-NA-EhT"/>
                 <outlet property="movieTitleLabel" destination="tJc-pi-YGB" id="9r1-Df-WLK"/>
+                <outlet property="ratingView" destination="2ad-GG-M3q" id="0Wm-D5-svM"/>
             </connections>
-            <point key="canvasLocation" x="-639" y="94"/>
+            <point key="canvasLocation" x="-639.13043478260875" y="93.75"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="entryImage" width="500" height="500"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -14,6 +14,7 @@ class MovieCell: UICollectionViewCell {
     @IBOutlet weak var movieRatingLabel: UILabel!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var ratingView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +35,8 @@ class MovieCell: UICollectionViewCell {
         movieTitleLabel.text = movie.title
         genreLabel.text = genresString
         genreLabel.textColor = Constants.Design.Color.Gray
+        movieRatingLabel.text = String(movie.voteAverage ?? 0)
+        movieRatingLabel.textColor = Constants.Design.Color.WhiteColor
         movieTitleLabel.textColor = Constants.Design.Color.WhiteColor
         self.backgroundColor = Constants.Design.Color.BlackColor
         self.layer.cornerRadius = 5
@@ -42,6 +45,16 @@ class MovieCell: UICollectionViewCell {
             movieImageView.kf.setImage(with: url)
             movieImageView.layer.cornerRadius = 5
         }
+        makeViewCircle()
     }
+    
+    func makeViewCircle() {
+        ratingView.layer.cornerRadius = ratingView.frame.size.width / 2
+        ratingView.clipsToBounds = true
+        ratingView.layer.borderColor = Constants.Design.Color.RedColorCg
+        ratingView.layer.borderWidth = 2
+        ratingView.backgroundColor = Constants.Design.Color.BlackColor
+    }
+
     
 }
