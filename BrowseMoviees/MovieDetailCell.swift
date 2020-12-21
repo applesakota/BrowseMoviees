@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieDetailCell: UITableViewCell {
-    
     
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -17,24 +17,45 @@ class MovieDetailCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var ratingNumberLabel: UILabel!
     @IBOutlet weak var movieTextView: UITextView!
+    @IBOutlet weak var viewOutlet: UIView!
     
+    let shapeLayer = CAShapeLayer()
+    var movieRating: Double = 10.0
+    var percentage: Double?
+
     
     func configureUI(movie: Movie) {
+        var ganresString = ""
         movieTitleLabel.text = movie.title
-        movieTitleLabel.textColor = Constants.Design.Color.DarkGray
-        genreLabel.text = "Genre" 
-        genreLabel.textColor = Constants.Design.Color.DarkGray
-        ratingLabel.text = "Rating: "
-        ratingLabel.textColor = Constants.Design.Color.DarkGray
+        movieTitleLabel.textColor = Constants.Design.Color.WhiteColor
+        for id in movie.genreIds ?? []{
+            if let genre = AppGlobals.shared.genres.first(where: {$0.id == id}) {
+                ganresString += genre.name + ", "
+            }
+        }
+        if ganresString.count > 2 {
+            ganresString.removeLast()
+            ganresString.removeLast()
+        }
+        percentage = (movie.voteAverage ?? 0) / movieRating
+        genreLabel.text = ganresString
+        genreLabel.textColor = Constants.Design.Color.WhiteColor
+        ratingLabel.text = ""
+        ratingLabel.textColor = Constants.Design.Color.WhiteColor
         ratingNumberLabel.text = String(movie.voteAverage ?? 0)
-        ratingNumberLabel.textColor = Constants.Design.Color.DarkGray
+        ratingNumberLabel.textColor = Constants.Design.Color.WhiteColor
         movieTextView.text = movie.overview
-        movieTextView.backgroundColor = Constants.Design.Color.Gray
-        movieTextView.textColor = Constants.Design.Color.DarkGray
-        self.backgroundColor = Constants.Design.Color.Gray
+        movieTextView.backgroundColor = Constants.Design.Color.BlackBacgroundColor
+        movieTextView.textColor = Constants.Design.Color.WhiteColor
+        self.backgroundColor = Constants.Design.Color.BlackBacgroundColor
+        if let backDrop = movie.backdropPath,
+           let url = URL(string: "\(Constants.API.BASE_IMAGE_URL)/\(ImageSize.original)/\(backDrop)") {
+            movieImageView.kf.setImage(with: url)
+        }
+        makeCircleLayer()
         userInteraction()
-        
     }
+    
     func userInteraction() {
         movieTitleLabel.isUserInteractionEnabled = false
         genreLabel.isUserInteractionEnabled = false
@@ -42,5 +63,39 @@ class MovieDetailCell: UITableViewCell {
         movieTextView.isUserInteractionEnabled = false
         ratingNumberLabel.isUserInteractionEnabled = false
         self.isUserInteractionEnabled = false
+    }
+    //Animation
+    func makeCircleLayer() {
+        viewOutlet.backgroundColor = .clear
+        let trackLayer = CAShapeLayer()
+        let circularPath = UIBezierPath(ovalIn: viewOutlet.bounds)
+        trackLayer.path = circularPath.cgPath
+        trackLayer.strokeColor = Constants.Design.Color.BlackColorCg
+        trackLayer.lineWidth = 5
+        trackLayer.fillColor = Constants.Design.Color.BlackColorCg
+        trackLayer.lineCap = CAShapeLayerLineCap(rawValue: "round")
+        viewOutlet.layer.addSublayer(trackLayer)
+        shapeLayer.path = circularPath.cgPath
+        shapeLayer.backgroundColor = Constants.Design.Color.White.cgColor
+        shapeLayer.strokeColor = Constants.Design.Color.Red.cgColor
+        shapeLayer.lineWidth = 5
+        shapeLayer.fillColor = Constants.Design.Color.BlackBacgroundColorCg
+        shapeLayer.lineCap = CAShapeLayerLineCap(rawValue: "round")
+        shapeLayer.strokeEnd = 0
+        viewOutlet.layer.addSublayer(shapeLayer)
+        ratingNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+        ratingNumberLabel.centerXAnchor.constraint(equalTo: viewOutlet.centerXAnchor).isActive = true
+        ratingNumberLabel.centerYAnchor.constraint(equalTo: viewOutlet.centerYAnchor).isActive = true
+        ratingNumberLabel.textAlignment = .center
+        viewOutlet.addSubview(ratingNumberLabel)
+        animateStroke()
+    }
+    func animateStroke() {
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        basicAnimation.toValue = percentage
+        basicAnimation.duration = 1
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+        basicAnimation.isRemovedOnCompletion = false
+        shapeLayer.add(basicAnimation, forKey: "basicAnimation")
     }
 }

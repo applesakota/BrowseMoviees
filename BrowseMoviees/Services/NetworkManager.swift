@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 enum MovieListEndpoint: String {
     case trending = "popular"
@@ -148,12 +149,6 @@ class NetworkManager {
                 }
             }.resume()
         }
-    }
-    func getMoviesImage(for image: UIImageView, size: ImageSize, path: String, errorHandler: @escaping ErrorHandler, successHandler: @escaping SuccessHandler) {
-        if let url = URL(string: "\(Constants.API.BASE_IMAGE_URL)/\(size.rawValue)/\(path)") {
-            
-        }
-        errorHandler(NetworksErrors.badURL)
     }
 }
 

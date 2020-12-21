@@ -13,7 +13,7 @@ class GenreCell: UICollectionViewCell {
     @IBOutlet weak var genreImageView: UIImageView!
     @IBOutlet weak var genreLabel: UILabel!
     
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,8 +21,8 @@ class GenreCell: UICollectionViewCell {
     }
     func configureUI(genre: Genre) {
         genreLabel.text = genre.name
-        genreLabel.textColor = Constants.Design.Color.DarkGray
-        self.backgroundColor = Constants.Design.Color.Gray
+        genreLabel.textColor = Constants.Design.Color.WhiteColor
+        self.backgroundColor = Constants.Design.Color.BlackBacgroundColor
     }
 
 }

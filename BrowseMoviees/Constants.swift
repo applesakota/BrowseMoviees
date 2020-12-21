@@ -20,6 +20,19 @@ struct Constants {
             static let DarkGrayCG = DarkGray.cgColor
             static let BlackCG = Black.cgColor
             static let Gray2 = UIColor.systemGray
+            static let Red = UIColor.systemRed
+            static let RedColor = UIColor(hexString: "#db0000")
+            static let RedColorCg = RedColor.cgColor
+            static let BlackColor = UIColor(hexString: "#000000")
+            static let BlackColorCg = BlackColor.cgColor
+            static let WhiteColor = UIColor(hexString: "#ffffff")
+            static let WhiteColorCg = WhiteColor.cgColor
+            static let BlackLightColor = UIColor(hexString: "#564D4D")
+            static let BlackLightColorCg = BlackLightColor.cgColor
+            static let RedLightColor = UIColor(hexString: "#831010")
+            static let RedLightColorCg = RedLightColor.cgColor
+            static let BlackBacgroundColor = UIColor(hexString: "221F1F")
+            static let BlackBacgroundColorCg = BlackBacgroundColor.cgColor
         }
     }
     struct API {

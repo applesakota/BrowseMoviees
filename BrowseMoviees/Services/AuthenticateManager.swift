@@ -122,11 +122,8 @@ class AuthenticateManager {
         return emailPred.evaluate(with: email)
     }
     func saveToUserDefaults(name: String, email:String, password: String) -> Bool {
-        if UserManager.shared.getLastSignUser() == nil {
-            UserManager.shared.initUser(name: name, email: email, password: password)
-            return true
-        }
-        return false
+        UserManager.shared.initUser(name: name, email: email, password: password, isLogin: true)
+        return true
     }
     private func loadUserFromUserDefaults(email: String, password: String) -> Bool {
         if UserManager.shared.user?.email == email && UserManager.shared.user?.password == password {

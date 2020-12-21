@@ -36,14 +36,13 @@ class GenresViewController: UIViewController {
     //ui
     func configureUI() {
         setNavigation()
-        genresCollectionView.backgroundColor = Constants.Design.Color.Gray
+        genresCollectionView.backgroundColor = Constants.Design.Color.BlackBacgroundColor
     }
     func setNavigation() {
-        navigationController?.navigationBar.barTintColor = Constants.Design.Color.Gray2
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Constants.Design.Color.DarkGray]
-        tabBarController?.tabBar.barTintColor = Constants.Design.Color.Gray2
+        navigationController?.navigationBar.barTintColor = Constants.Design.Color.BlackColor
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Constants.Design.Color.WhiteColor]
         self.navigationItem.title = "Genres"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(movieProfile), imageName: "profile-user")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(movieProfile), imageName: "profile-user-4")
     }
     @objc func movieProfile() {
         self.showProfileScreen()

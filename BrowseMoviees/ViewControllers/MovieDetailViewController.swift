@@ -16,14 +16,19 @@ class MovieDetailViewController: UIViewController {
     var movieList: Movie?
     var creditsList: CreditsList?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.movieDetailTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         movieDetailTableView.delegate = self
         movieDetailTableView.dataSource = self
-
+        
         // Do any additional setup after loading the view.
         NetworkManager.shared.getCredits(from: movieList?.id ?? 0, endpoint: MovieListEndpoint.credits) { (error) in
-
+            
         } successHandler: { (model) in
             if let model = model as? CreditsList {
                 self.creditsList = model
@@ -31,14 +36,19 @@ class MovieDetailViewController: UIViewController {
                     self.movieDetailTableView.reloadData()
                 }
             }
-                   }
-
+        }
+        
     }
     
 }
 extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 1 ? "Cast:" : nil
+    }
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Constants.Design.Color.BlackColor
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = Constants.Design.Color.White
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2

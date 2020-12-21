@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
         //userInteraction()
         // Do any additional setup after loading the view.
         self.navigationItem.title = "Profile"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(saveUser), imageName: "save-button")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(saveUser), imageName: "save-button-2")
     }
     @objc func saveUser() {
         AuthenticateManager.shared.editUser(name: profileFullNameTextField.text ?? "", email: profileEmailTextField.text ?? "", password: profilePasswordTextField.text ?? "") { (error) in
@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController {
     func presentReminder() {
         let alert = UIAlertController(title: "Are you sure to logout", message: "Your data will be lost", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            UserManager.shared.user = nil
+            UserManager.shared.logOut()
             self.showLoginScreen()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
@@ -48,27 +48,34 @@ class ProfileViewController: UIViewController {
     
     //ui
     func configureUI() {
-        view.backgroundColor = Constants.Design.Color.Gray
+        view.backgroundColor = Constants.Design.Color.BlackBacgroundColor
         self.profileFullNameTextField.delegate = self
         self.profilePasswordTextField.delegate = self
         self.profileEmailTextField.delegate = self
         self.profileDateTextField.delegate = self
-        profileFullNameTextField.layer.borderWidth = 2
+        profileFullNameTextField.layer.borderWidth = 0
         profileFullNameTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
         
         logoutButtonOutlet.layer.backgroundColor = Constants.Design.Color.BlackCG
         logoutButtonOutlet.setTitleColor(Constants.Design.Color.White, for: .normal)
         
-        profilePasswordTextField.layer.borderWidth = 2
+        profilePasswordTextField.layer.borderWidth = 0
         profilePasswordTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
         
-        profileEmailTextField.layer.borderWidth = 2
+        profileEmailTextField.layer.borderWidth = 0
         profileEmailTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
         
-        profileDateTextField.layer.borderWidth = 2
+        profileDateTextField.layer.borderWidth = 0
         profileDateTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
         textFieldsUI()
+        configureButtonUI()
 
+    }
+    func configureButtonUI() {
+        logoutButtonOutlet.layer.borderWidth = 0
+        logoutButtonOutlet.layer.backgroundColor = Constants.Design.Color.RedColorCg
+        logoutButtonOutlet.setTitleColor(Constants.Design.Color.White, for: .normal)
+        logoutButtonOutlet.isUserInteractionEnabled = true
     }
     func textFieldsUI() {
         profileFullNameTextField.text = UserManager.shared.user?.name

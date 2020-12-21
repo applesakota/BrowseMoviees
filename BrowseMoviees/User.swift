@@ -10,7 +10,11 @@ import Foundation
 
 
 struct User {
-    var name: String?
+    var name: String
     var email: String
     var password: String
+    var date: String?
+    var isLogin: Bool
+    //photo
+    
 }

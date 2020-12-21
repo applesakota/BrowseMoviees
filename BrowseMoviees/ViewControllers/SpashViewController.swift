@@ -12,9 +12,10 @@ class SpashViewController: UIViewController {
     
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var getStartedButton: UIButton!
-
+    static let shared = SpashViewController()
     var user: User?
 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
@@ -22,12 +23,21 @@ class SpashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         user = UserManager.shared.getLastSignUser()
-        if user != nil {
+        if user?.isLogin ?? false {
             self.showMainScreen()
+        } else {
+            self.showLoginScreen()
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        NetworkManager.shared.getCategories(from: MovieListEndpoint.genre) { (error) in
+        
+        } successHandler: { (model) in
+            if let model = model as? [Genre] {
+                AppGlobals.shared.genres = model
+            }
+        }
         configureUI()
     }
     //MARK: -UI
@@ -38,7 +48,7 @@ class SpashViewController: UIViewController {
         getStartedButton.layer.backgroundColor = Constants.Design.Color.GrayCG
         getStartedButton.layer.borderWidth = 2
         getStartedButton.layer.borderColor = Constants.Design.Color.DarkGrayCG
-        view.backgroundColor = Constants.Design.Color.Gray
+        view.backgroundColor = Constants.Design.Color.Black
     }
 }
 

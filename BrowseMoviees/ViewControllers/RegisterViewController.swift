@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class RegisterViewController: UIViewController {
     
@@ -20,13 +21,18 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButtonOutlet: UIButton!
     @IBOutlet weak var helperLabel: UILabel!
     @IBOutlet weak var helperButton: UIButton!
-    
 
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var dateOfBirtdhLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         setButtonLabel(labelText: "Already have account? Login", buttonText: "here")
         showDatePicker()
+        
     }
     //datePicker
     func showDatePicker() {
@@ -52,28 +58,44 @@ class RegisterViewController: UIViewController {
         self.view.endEditing(true)
     }
     func configureUI() {
-        view.backgroundColor = Constants.Design.Color.Gray
+        view.backgroundColor = Constants.Design.Color.BlackBacgroundColor
         self.fullNameTextField.delegate = self
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         self.dateOfBirthTextField.delegate = self
-        fullNameTextField.layer.borderWidth = 2
-        fullNameTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
-        emailTextField.layer.borderWidth = 2
-        emailTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
-        passwordTextField.layer.borderWidth = 2
-        passwordTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
-        dateOfBirthTextField.layer.borderWidth = 2
-        dateOfBirthTextField.layer.borderColor = Constants.Design.Color.DarkGrayCG
-        registerButtonOutlet.layer.backgroundColor = Constants.Design.Color.BlackCG
-        registerButtonOutlet.setTitleColor(Constants.Design.Color.White, for: .normal)
+        fullNameTextField.layer.borderWidth = 0
+        fullNameTextField.layer.borderColor = Constants.Design.Color.GrayCG
+        emailTextField.layer.borderWidth = 0
+        emailTextField.layer.borderColor = Constants.Design.Color.GrayCG
+        passwordTextField.layer.borderWidth = 0
+        passwordTextField.layer.borderColor = Constants.Design.Color.GrayCG
+        dateOfBirthTextField.layer.borderWidth = 0
+        dateOfBirthTextField.layer.borderColor = Constants.Design.Color.GrayCG
+        registerButtonUI()
+        emailLabel.isHidden = true
+        fullNameLabel.isHidden = true
+        dateOfBirtdhLabel.isHidden = true
+        passwordLabel.isHidden = true
     }
     func setButtonLabel(labelText: String, buttonText: String) {
         helperLabel.text = labelText
-        helperLabel.textColor = Constants.Design.Color.DarkGray
+        helperLabel.textColor = Constants.Design.Color.WhiteColor
         helperButton.setTitle(buttonText, for: .normal)
     }
-
+    func registerButtonUI() {
+        if fullNameTextField.text == "" || emailTextField.text == "" || passwordTextField.text == "" {
+            registerButtonOutlet.layer.borderWidth = 2
+            registerButtonOutlet.layer.backgroundColor = Constants.Design.Color.BlackBacgroundColorCg
+            registerButtonOutlet.layer.borderColor = Constants.Design.Color.BlackColorCg
+            registerButtonOutlet.setTitleColor(Constants.Design.Color.White, for: .normal)
+            registerButtonOutlet.isUserInteractionEnabled = false
+        } else {
+            registerButtonOutlet.layer.borderWidth = 0
+            registerButtonOutlet.layer.backgroundColor = Constants.Design.Color.RedColorCg
+            registerButtonOutlet.setTitleColor(Constants.Design.Color.White, for: .normal)
+            registerButtonOutlet.isUserInteractionEnabled = true
+        }
+    }
     //MARK: IBAction
     @IBAction func registerButton(_ sender: Any) {
         AuthenticateManager.shared.createUser(name: fullNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!) { (error) in
@@ -90,4 +112,50 @@ extension RegisterViewController: UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        registerButtonUI()
+        if textField == self.fullNameTextField {
+            show(label: fullNameLabel, text: fullNameTextField.placeholder)
+            fullNameTextField.placeholder = ""
+            
+        } else if textField == self.emailTextField {
+            show(label: emailLabel, text: emailTextField.placeholder)
+            emailTextField.placeholder = ""
+            
+        } else if textField == self.passwordTextField {
+            show(label: passwordLabel, text: passwordTextField.placeholder)
+            passwordTextField.placeholder = ""
+            
+        } else if textField == self.dateOfBirthTextField {
+            show(label: dateOfBirtdhLabel, text: "Date:")
+            dateOfBirthTextField.placeholder = ""
+            
+        }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        registerButtonUI()
+        if textField == self.fullNameTextField {
+            hide(label: fullNameLabel)
+            fullNameTextField.placeholder = "Full Name"
+        } else if textField == self.emailTextField {
+            hide(label: emailLabel)
+            emailTextField.placeholder = "Email"
+            
+        } else if textField == self.passwordTextField {
+            hide(label: passwordLabel)
+            passwordTextField.placeholder = "Password"
+            
+        } else if textField == self.dateOfBirthTextField {
+            hide(label: dateOfBirtdhLabel)
+            dateOfBirthTextField.placeholder = "Date of birth"
+        }
+    }
+    func show(label: UILabel, text: String?) {
+        label.isHidden = false
+        label.text = text
+    }
+    func hide(label: UILabel) {
+        label.isHidden = true
+    }
+    
 }

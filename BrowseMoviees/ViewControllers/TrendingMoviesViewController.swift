@@ -35,14 +35,13 @@ class TrendingMoviesViewController: UIViewController {
     //UI
     func configureUI() {
         setNavigation()
-        trendingCollectionView.backgroundColor = Constants.Design.Color.Gray
+        trendingCollectionView.backgroundColor = Constants.Design.Color.BlackBacgroundColor
     }
     func setNavigation() {
-        navigationController?.navigationBar.barTintColor = Constants.Design.Color.Gray2
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Constants.Design.Color.DarkGray]
-        tabBarController?.tabBar.barTintColor = Constants.Design.Color.Gray2
+        navigationController?.navigationBar.barTintColor = Constants.Design.Color.BlackColor
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Constants.Design.Color.WhiteColor]
         self.navigationItem.title = "Trending"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(movieProfile), imageName: "profile-user")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(movieProfile), imageName: "profile-user-4")
     }
     @objc func movieProfile() {
         //Add new view Controllers
