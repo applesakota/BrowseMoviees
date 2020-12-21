@@ -43,7 +43,7 @@ class MovieDetailViewController: UIViewController {
 }
 extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 1 ? "Cast:" : nil
+        return section == 1 && creditsList?.cast?.count ?? 0 > 0 ? "Cast:" : nil
     }
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = Constants.Design.Color.BlackColor
@@ -62,12 +62,27 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource 
                 fatalError()
             }
             cell.configureUI(movie: movieList!)
+            cell.delegate = self
             return cell
         }
+        
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastMovieCell", for: indexPath) as? CastMovieCell else  { fatalError() }
         cell.configureUI(credits: (creditsList!.cast?[indexPath.row])!)
         return cell
     }
+    
+}
+extension MovieDetailViewController: MyCollectionViewCellDelegate {
+    func didTapButton(with movie: Movie) {
+        UserManager.shared.addMovie(movie: movie) {
+            UserManager.shared.user?.movies?.append(movie)
+            self.showMyListMovie()
+        } errorHandler: { (error) in
+            self.presentError(message: error.localizedDescription)
+        }
+
+    }
+    
     
 }

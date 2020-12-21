@@ -3,4 +3,274 @@
    uuid = "1FF9F1EA-0CEA-4C77-BFE1-FA27766D54DA"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA88A8AE-F622-4AD7-838C-3946055E0FE9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "configureEmptyScreen()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "578309C3-7E5E-4387-A094-328293A30AD6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A26D9869-FAFF-4942-94BE-9580E0212162"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F5BDAFD-0643-4E60-836A-01C1C51A634C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "MyListOfMoviesViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "7F5BDAFD-0643-4E60-836A-01C1C51A634C - fb56a6c7c60627d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BrowseMoviees.MyListOfMoviesViewController.movies.getter : Swift.Optional&lt;Swift.Array&lt;BrowseMoviees.Movie&gt;&gt;"
+                  moduleName = "BrowseMoviees"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petarsakotic/Documents/BrowseMoviees/BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "7F5BDAFD-0643-4E60-836A-01C1C51A634C - 9b6d4031e84eaa61"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BrowseMoviees.MyListOfMoviesViewController.movies.setter : Swift.Optional&lt;Swift.Array&lt;BrowseMoviees.Movie&gt;&gt;"
+                  moduleName = "BrowseMoviees"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petarsakotic/Documents/BrowseMoviees/BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "7F5BDAFD-0643-4E60-836A-01C1C51A634C - 4a61b9fc8ddfcfa3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BrowseMoviees.MyListOfMoviesViewController.movies.modify : Swift.Optional&lt;Swift.Array&lt;BrowseMoviees.Movie&gt;&gt;"
+                  moduleName = "BrowseMoviees"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petarsakotic/Documents/BrowseMoviees/BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "7F5BDAFD-0643-4E60-836A-01C1C51A634C - b97d16001c3a6779"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BrowseMoviees.MyListOfMoviesViewController.movies.modify : Swift.Optional&lt;Swift.Array&lt;BrowseMoviees.Movie&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "BrowseMoviees"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petarsakotic/Documents/BrowseMoviees/BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "7F5BDAFD-0643-4E60-836A-01C1C51A634C - 62eaf3bf37e7a23a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BrowseMoviees.MyListOfMoviesViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; BrowseMoviees.MyListOfMoviesViewController"
+                  moduleName = "BrowseMoviees"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petarsakotic/Documents/BrowseMoviees/BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "463">
+               </Location>
+               <Location
+                  uuid = "7F5BDAFD-0643-4E60-836A-01C1C51A634C - 637b1c203f2ba546"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BrowseMoviees.MyListOfMoviesViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;BrowseMoviees.MyListOfMoviesViewController&gt;"
+                  moduleName = "BrowseMoviees"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petarsakotic/Documents/BrowseMoviees/BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "374">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B908B02-9631-4FB2-802B-18D08F0A14AF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrowseMoviees/ViewControllers/MyListOfMoviesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8945E134-D91B-458E-B0F2-30B72DA351D5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrowseMoviees/ViewControllers/MovieDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "didTapButton(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AB39079-68E3-427F-80F2-3DB29DFE74A2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrowseMoviees/ViewControllers/MovieDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "didTapButton(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2AB39079-68E3-427F-80F2-3DB29DFE74A2 - c7ed276be04392d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BrowseMoviees.MovieDetailViewController.didTapButton(with: BrowseMoviees.Movie) -&gt; ()"
+                  moduleName = "BrowseMoviees"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petarsakotic/Documents/BrowseMoviees/BrowseMoviees/ViewControllers/MovieDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "724">
+               </Location>
+               <Location
+                  uuid = "2AB39079-68E3-427F-80F2-3DB29DFE74A2 - b88d27e2df00db4a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in BrowseMoviees.MovieDetailViewController.didTapButton(with: BrowseMoviees.Movie) -&gt; ()"
+                  moduleName = "BrowseMoviees"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petarsakotic/Documents/BrowseMoviees/BrowseMoviees/ViewControllers/MovieDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "111">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5F69372-F03D-4813-8742-70CDE28B3107"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrowseMoviees/ViewControllers/MovieDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "didTapButton(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73FA4051-3A99-417F-94B0-961A8B47CA49"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BrowseMoviees/ViewControllers/MovieDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "didTapButton(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -43,6 +43,11 @@ extension UIViewController {
         let controller = storyboard.instantiateViewController(identifier: "LoginScreen")
         present(controller, animated: true, completion: nil)
     }
+    func showMyListMovie() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: "MyListOfMoviesViewController") as! MyListOfMoviesViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 extension UIColor {
     convenience init(hexString: String) {
@@ -61,5 +66,18 @@ extension UIColor {
             (a, r, g, b) = (255, 0, 0, 0)
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+    }
+}
+extension UIBarButtonItem {
+    static func menuButton(_ target: Any?, action: Selector, imageName: String) -> UIBarButtonItem {
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(UIImage(named: imageName), for: .normal)
+        button.addTarget(target, action: action, for: .touchUpInside)
+
+        let menuBarItem = UIBarButtonItem(customView: button)
+        menuBarItem.customView?.translatesAutoresizingMaskIntoConstraints = false
+        menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        return menuBarItem
     }
 }

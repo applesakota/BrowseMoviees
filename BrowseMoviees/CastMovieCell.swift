@@ -16,9 +16,8 @@ class CastMovieCell: UITableViewCell {
     @IBOutlet weak var castImageView: UIImageView!
     
     
-    
     func configureUI(credits: Cast)  {
-        movieNameLabel.text = credits.name
+        movieNameLabel.text = credits.character
         realNameLabel.text = credits.originalName
         realNameLabel.textColor = Constants.Design.Color.WhiteColor
         movieNameLabel.textColor = Constants.Design.Color.WhiteColor

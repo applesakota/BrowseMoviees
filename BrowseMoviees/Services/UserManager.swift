@@ -7,20 +7,26 @@
 //
 
 import Foundation
+enum UserManagerError: Error {
+    case noMovie
+}
 
 class UserManager {
     
     static let shared = UserManager()
     private init() {}
+    static let userMoviesChangedNotificationName = "moviesChanged"
     var user: User? {
         didSet {
             UserDefaults.standard.set(self.user != nil, forKey: UserManager.userDefaultKey)
             UserDefaults.standard.set(self.user?.name, forKey: UserManager.userDefaultNameKey)
             UserDefaults.standard.set(self.user?.email, forKey: UserManager.userDefaultEmailKey)
             UserDefaults.standard.set(self.user?.password, forKey: UserManager.userDefaultPasswordKey)
+            UserDefaults.standard.set(self.user?.movies, forKey: UserManager.userDefaultMoviesKey)
             UserDefaults.standard.setValue(true, forKey: UserManager.userDefaultIsLogin)
         }
     }
+    private static let userDefaultMoviesKey = "userDefaultMoviesKey"
     private static let userDefaultKey = "userDefaultKey"
     private static let userDefaultNameKey = "userDefaulNameKey"
     private static let userDefaultEmailKey = "userDefaulEmailKey"
@@ -45,5 +51,14 @@ class UserManager {
             initUser(name: name, email: email, password: password, isLogin: UserDefaults.standard.bool(forKey: UserManager.userDefaultIsLogin))
         }
         return user
+    }
+    func addMovie(movie: Movie?, successHandler: ()->Void, errorHandler: (_ error: Error) -> Void) {
+        if movie != nil {
+            user?.movies?.append(movie!)
+            NotificationCenter.default.post(name: NSNotification.Name(UserManager.userMoviesChangedNotificationName), object: nil)
+            successHandler()
+        } else {
+            errorHandler(UserManagerError.noMovie)
+        }
     }
 }

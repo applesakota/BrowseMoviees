@@ -9,7 +9,13 @@
 import UIKit
 import Kingfisher
 
+protocol MyCollectionViewCellDelegate: AnyObject {
+    func didTapButton(with movie: Movie)
+}
+
 class MovieDetailCell: UITableViewCell {
+    
+    weak var delegate: MyCollectionViewCellDelegate?
     
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -18,13 +24,20 @@ class MovieDetailCell: UITableViewCell {
     @IBOutlet weak var ratingNumberLabel: UILabel!
     @IBOutlet weak var movieTextView: UITextView!
     @IBOutlet weak var viewOutlet: UIView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var addToMyListButton: UIButton!
     
     let shapeLayer = CAShapeLayer()
     var movieRating: Double = 10.0
     var percentage: Double?
-
+    var movie: Movie?
     
     func configureUI(movie: Movie) {
+        self.movie = movie
+        playButton.backgroundColor = Constants.Design.Color.RedColor
+        addToMyListButton.backgroundColor = Constants.Design.Color.WhiteColor
+        playButton.layer.cornerRadius = 5
+        addToMyListButton.layer.cornerRadius = 5
         var ganresString = ""
         movieTitleLabel.text = movie.title
         movieTitleLabel.textColor = Constants.Design.Color.WhiteColor
@@ -53,17 +66,10 @@ class MovieDetailCell: UITableViewCell {
             movieImageView.kf.setImage(with: url)
         }
         makeCircleLayer()
-        userInteraction()
+        
     }
     
-    func userInteraction() {
-        movieTitleLabel.isUserInteractionEnabled = false
-        genreLabel.isUserInteractionEnabled = false
-        ratingLabel.isUserInteractionEnabled = false
-        movieTextView.isUserInteractionEnabled = false
-        ratingNumberLabel.isUserInteractionEnabled = false
-        self.isUserInteractionEnabled = false
-    }
+
     //Animation
     func makeCircleLayer() {
         viewOutlet.backgroundColor = .clear
@@ -99,5 +105,8 @@ class MovieDetailCell: UITableViewCell {
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: "basicAnimation")
+    }
+    @IBAction func addToMyListAction(_ sender: UIButton) {
+        delegate?.didTapButton(with: movie!)
     }
 }
