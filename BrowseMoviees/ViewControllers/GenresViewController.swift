@@ -37,6 +37,7 @@ class GenresViewController: UIViewController {
     func configureUI() {
         setNavigation()
         genresCollectionView.backgroundColor = Constants.Design.Color.BlackBacgroundColor
+        genresCollectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
     func setNavigation() {
         navigationController?.navigationBar.barTintColor = Constants.Design.Color.BlackColor
@@ -61,7 +62,7 @@ extension GenresViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return item
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.bounds.width - 30) / 2, height: 100)
+        return CGSize(width: (view.bounds.width - 30) / 2, height: 130)
 
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
