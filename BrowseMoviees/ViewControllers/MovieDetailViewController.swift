@@ -76,7 +76,6 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource 
 extension MovieDetailViewController: MyCollectionViewCellDelegate {
     func didTapButton(with movie: Movie) {
         UserManager.shared.addMovie(movie: movie) {
-            UserManager.shared.user?.movies?.append(movie)
             self.showMyListMovie()
         } errorHandler: { (error) in
             self.presentError(message: error.localizedDescription)

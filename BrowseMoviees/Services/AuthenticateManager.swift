@@ -122,7 +122,7 @@ class AuthenticateManager {
         return emailPred.evaluate(with: email)
     }
     func saveToUserDefaults(name: String, email:String, password: String) -> Bool {
-        UserManager.shared.initUser(name: name, email: email, password: password, isLogin: true)
+        UserManager.shared.initUser(name: name, email: email, password: password, isLogin: true, movies: [])
         return true
     }
     private func loadUserFromUserDefaults(email: String, password: String) -> Bool {

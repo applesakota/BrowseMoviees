@@ -34,8 +34,7 @@ class MovieDetailCell: UITableViewCell {
     
     func configureUI(movie: Movie) {
         self.movie = movie
-        playButton.backgroundColor = Constants.Design.Color.RedColor
-        addToMyListButton.backgroundColor = Constants.Design.Color.WhiteColor
+        configureButtonsUI()
         playButton.layer.cornerRadius = 5
         addToMyListButton.layer.cornerRadius = 5
         var ganresString = ""
@@ -105,5 +104,19 @@ class MovieDetailCell: UITableViewCell {
     }
     @IBAction func addToMyListAction(_ sender: UIButton) {
         delegate?.didTapButton(with: movie!)
+    }
+    func configureButtonsUI() {
+        playButton.layer.borderWidth = 2
+        playButton.layer.backgroundColor = Constants.Design.Color.BlackBacgroundColorCg
+        playButton.layer.borderColor = Constants.Design.Color.BlackColorCg
+        playButton.setTitleColor(Constants.Design.Color.White, for: .normal)
+        playButton.isUserInteractionEnabled = false
+        
+        addToMyListButton.layer.borderWidth = 2
+        addToMyListButton.layer.backgroundColor = Constants.Design.Color.BlackBacgroundColorCg
+        addToMyListButton.layer.borderColor = Constants.Design.Color.BlackColorCg
+        addToMyListButton.setTitleColor(Constants.Design.Color.White, for: .normal)
+        addToMyListButton.isUserInteractionEnabled = false
+        
     }
 }

@@ -55,6 +55,7 @@
             </constraints>
             <size key="customSize" width="123" height="56"/>
             <connections>
+                <outlet property="genreCellView" destination="TfX-mW-1MT" id="WBN-X3-WKc"/>
                 <outlet property="genreImageView" destination="6zu-IS-ZCO" id="m4V-T2-jga"/>
                 <outlet property="genreLabel" destination="Vf0-Fn-15z" id="Gfw-Ae-4WD"/>
             </connections>

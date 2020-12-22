@@ -22,7 +22,6 @@ class UserManager {
             UserDefaults.standard.set(self.user?.name, forKey: UserManager.userDefaultNameKey)
             UserDefaults.standard.set(self.user?.email, forKey: UserManager.userDefaultEmailKey)
             UserDefaults.standard.set(self.user?.password, forKey: UserManager.userDefaultPasswordKey)
-            UserDefaults.standard.set(self.user?.movies, forKey: UserManager.userDefaultMoviesKey)
             UserDefaults.standard.setValue(true, forKey: UserManager.userDefaultIsLogin)
         }
     }
@@ -40,15 +39,17 @@ class UserManager {
         UserDefaults.standard.setValue(true, forKey: UserManager.userDefaultIsLogin)
     }
     
-    func initUser(name: String, email:String, password:String, isLogin: Bool) {
-        let userFromUserDefaults = User(name: name, email: email, password: password, isLogin: isLogin)
+    func initUser(name: String, email:String, password:String, isLogin: Bool, movies: [Movie]? = []) {
+        let userFromUserDefaults = User(name: name, email: email, password: password, isLogin: isLogin, movies: movies)
         user = userFromUserDefaults
     }
     func getLastSignUser() -> User? {
         if let name = UserDefaults.standard.string(forKey: UserManager.userDefaultNameKey),
            let email = UserDefaults.standard.string(forKey: UserManager.userDefaultEmailKey),
-           let password = UserDefaults.standard.string(forKey: UserManager.userDefaultPasswordKey) {
-            initUser(name: name, email: email, password: password, isLogin: UserDefaults.standard.bool(forKey: UserManager.userDefaultIsLogin))
+           let password = UserDefaults.standard.string(forKey: UserManager.userDefaultPasswordKey)
+           
+        {
+            initUser(name: name, email: email, password: password, isLogin: UserDefaults.standard.bool(forKey: UserManager.userDefaultIsLogin), movies: [])
         }
         return user
     }

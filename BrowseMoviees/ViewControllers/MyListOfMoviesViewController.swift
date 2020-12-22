@@ -31,20 +31,22 @@ class MyListOfMoviesViewController: UIViewController {
         myListCollectionView.dataSource = self
         refreshMoviesData()
         observerListenChangesOnPartiesData()
-        myListCollectionView.register(UINib.init(nibName: "MovieCell", bundle: nil), forCellWithReuseIdentifier: "MovieCell")
         if movies?.count == 0 {
             configureEmptyScreen()
         } else {
+            myListCollectionView.register(UINib.init(nibName: "MovieCell", bundle: nil), forCellWithReuseIdentifier: "MovieCell")
             configureUI()
         }
     }
     func configureEmptyScreen() {
         emptyView.backgroundColor = Constants.Design.Color.BlackColor
+        myListCollectionView.isHidden = true
     }
     func configureUI() {
-        emptyView.isHidden = true
+
         myListCollectionView.backgroundColor = Constants.Design.Color.BlackBacgroundColor
         myListCollectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
+        setNavigation()
     }
     func setNavigation() {
         navigationController?.navigationBar.barTintColor = Constants.Design.Color.BlackColor
@@ -71,7 +73,7 @@ extension MyListOfMoviesViewController: UICollectionViewDelegate, UICollectionVi
         return item
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.bounds.width - 30) / 2, height: 300)
+        return CGSize(width: (view.bounds.width - 20), height: 300)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let data = movies?[indexPath.row]
