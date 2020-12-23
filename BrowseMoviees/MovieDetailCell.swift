@@ -32,6 +32,7 @@ class MovieDetailCell: UITableViewCell {
     
     func configureUI(movie: Movie) {
         self.movie = movie
+
         var ganresString = ""
         movieTitleLabel.text = movie.title
         movieTitleLabel.textColor = Constants.Design.Color.WhiteColor

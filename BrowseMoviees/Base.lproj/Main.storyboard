@@ -377,7 +377,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="THIS IS SOME TEXT " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YSA-w8-c3i">
-                                                    <rect key="frame" x="0.0" y="378.5" width="414" height="33.5"/>
+                                                    <rect key="frame" x="16" y="378.5" width="382" height="33.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -386,11 +386,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Pjn-jd-jO9" firstAttribute="top" secondItem="O7L-Eg-ji5" secondAttribute="top" id="0zJ-5o-7bw"/>
-                                                <constraint firstAttribute="trailing" secondItem="YSA-w8-c3i" secondAttribute="trailing" id="2OK-Ks-l72"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="8MI-Zf-cF4" secondAttribute="trailing" id="4QE-7U-NSa"/>
                                                 <constraint firstItem="8MI-Zf-cF4" firstAttribute="top" secondItem="qU7-4L-xw5" secondAttribute="bottom" constant="20" id="9um-yb-bOz"/>
                                                 <constraint firstItem="qU7-4L-xw5" firstAttribute="top" secondItem="Pjn-jd-jO9" secondAttribute="bottom" constant="10" id="D7M-0R-MIc"/>
+                                                <constraint firstAttribute="trailing" secondItem="YSA-w8-c3i" secondAttribute="trailing" constant="16" id="FnU-I8-9Jf"/>
                                                 <constraint firstAttribute="trailing" secondItem="Pjn-jd-jO9" secondAttribute="trailing" id="IE1-JE-9aI"/>
+                                                <constraint firstItem="YSA-w8-c3i" firstAttribute="leading" secondItem="O7L-Eg-ji5" secondAttribute="leading" constant="16" id="J5m-oV-8F3"/>
                                                 <constraint firstItem="8MI-Zf-cF4" firstAttribute="leading" secondItem="O7L-Eg-ji5" secondAttribute="leadingMargin" id="Mt7-HJ-b1g"/>
                                                 <constraint firstItem="Pjn-jd-jO9" firstAttribute="leading" secondItem="O7L-Eg-ji5" secondAttribute="leading" id="Sf7-1t-A5V"/>
                                                 <constraint firstItem="YSA-w8-c3i" firstAttribute="top" secondItem="8MI-Zf-cF4" secondAttribute="bottom" constant="20" id="ULU-lV-qDs"/>
@@ -398,7 +399,6 @@
                                                 <constraint firstItem="qU7-4L-xw5" firstAttribute="leading" secondItem="O7L-Eg-ji5" secondAttribute="leadingMargin" id="WCT-Wz-uLr"/>
                                                 <constraint firstItem="qMl-we-1Dq" firstAttribute="leading" secondItem="qU7-4L-xw5" secondAttribute="trailing" constant="10" id="YcS-26-fVz"/>
                                                 <constraint firstAttribute="bottom" secondItem="YSA-w8-c3i" secondAttribute="bottom" constant="20" symbolic="YES" id="b6b-ng-pZF"/>
-                                                <constraint firstItem="YSA-w8-c3i" firstAttribute="leading" secondItem="O7L-Eg-ji5" secondAttribute="leading" id="f1L-cU-rLQ"/>
                                                 <constraint firstItem="qMl-we-1Dq" firstAttribute="bottom" secondItem="Pjn-jd-jO9" secondAttribute="bottom" constant="44" id="tCs-8v-fiP"/>
                                             </constraints>
                                         </tableViewCellContentView>
