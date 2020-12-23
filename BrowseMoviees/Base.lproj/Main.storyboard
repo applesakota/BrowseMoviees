@@ -312,10 +312,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieDetailCell" id="4po-JR-Jxt" customClass="MovieDetailCell" customModule="BrowseMoviees" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="492"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="432"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4po-JR-Jxt" id="O7L-Eg-ji5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="492"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="432"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pjn-jd-jO9">
@@ -350,35 +350,13 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8MI-Zf-cF4">
-                                                    <rect key="frame" x="20" y="338" width="374" height="80.5"/>
+                                                    <rect key="frame" x="20" y="338" width="374" height="20.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-0p-Nk5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="80.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0RU-Ep-U2c">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
-                                                                    <subviews>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MD8-g0-sBy">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="40"/>
-                                                                            <color key="backgroundColor" systemColor="systemRedColor"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="40" id="ess-WO-92r"/>
-                                                                            </constraints>
-                                                                            <state key="normal" title="Play"/>
-                                                                        </button>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLX-Nr-muG">
-                                                                            <rect key="frame" x="197" y="0.0" width="177" height="40"/>
-                                                                            <state key="normal" title="My List">
-                                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            </state>
-                                                                            <connections>
-                                                                                <action selector="addToMyListAction:" destination="4po-JR-Jxt" eventType="touchUpInside" id="s9R-ib-YQH"/>
-                                                                            </connections>
-                                                                        </button>
-                                                                    </subviews>
-                                                                </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="woF-fd-rdj">
-                                                                    <rect key="frame" x="0.0" y="60" width="374" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CU4-Nu-Qt9">
                                                                             <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -399,7 +377,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="THIS IS SOME TEXT " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YSA-w8-c3i">
-                                                    <rect key="frame" x="0.0" y="438.5" width="414" height="33.5"/>
+                                                    <rect key="frame" x="0.0" y="378.5" width="414" height="33.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -425,19 +403,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addToMyListButton" destination="PLX-Nr-muG" id="cVa-B9-Els"/>
                                             <outlet property="genreLabel" destination="zJC-WQ-JQH" id="e0B-5y-2gN"/>
                                             <outlet property="movieImageView" destination="Pjn-jd-jO9" id="c9a-4I-Vrb"/>
                                             <outlet property="movieTextView" destination="YSA-w8-c3i" id="chk-Zb-aUL"/>
                                             <outlet property="movieTitleLabel" destination="gJR-qb-Epx" id="Mig-Vv-2nf"/>
-                                            <outlet property="playButton" destination="MD8-g0-sBy" id="4yE-A4-y0X"/>
                                             <outlet property="ratingLabel" destination="CU4-Nu-Qt9" id="Xi8-PQ-cfi"/>
                                             <outlet property="ratingNumberLabel" destination="Skg-gu-Rr4" id="CK9-Ft-7ma"/>
                                             <outlet property="viewOutlet" destination="qMl-we-1Dq" id="kXf-fY-3zu"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CastMovieCell" rowHeight="90" id="rAR-qM-1hC" customClass="CastMovieCell" customModule="BrowseMoviees" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="520" width="414" height="90"/>
+                                        <rect key="frame" x="0.0" y="460" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rAR-qM-1hC" id="1aA-og-BKu">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -1056,9 +1032,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

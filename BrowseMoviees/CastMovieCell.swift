@@ -25,11 +25,7 @@ class CastMovieCell: UITableViewCell {
            let url = URL(string: "\(Constants.API.BASE_IMAGE_URL)/\(ImageSize.original)/\(profilePath)") {
          castImageView.kf.setImage(with: url)
         }
-        configureImageCircular()
         self.backgroundColor = Constants.Design.Color.BlackBacgroundColor
         self.isUserInteractionEnabled = false
-    }
-    func configureImageCircular() {
-        
     }
 }

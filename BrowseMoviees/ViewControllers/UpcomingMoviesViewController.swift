@@ -44,7 +44,6 @@ class UpcomingMoviesViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(movieProfile), imageName: "profile-user-4")
     }
     @objc func movieProfile() {
-        //Add new view Controllers
         self.showProfileScreen()
     }
     

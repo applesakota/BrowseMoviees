@@ -9,26 +9,22 @@
 import UIKit
 
 class GenreCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var genreImageView: UIImageView!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var genreCellView: UIView!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        
     }
     func configureUI(genre: Genre) {
+        self.layer.cornerRadius = 5
         genreCellView.backgroundColor = Constants.Design.Color.RedColor
         genreLabel.text = genre.name
         self.backgroundColor = Constants.Design.Color.BlackColor
         genreLabel.textColor = Constants.Design.Color.WhiteColor
         setImage(for: genre)
-        
-        
     }
     func setImage(for genre: Genre) {
         if genre.name == "Action" {
@@ -45,6 +41,8 @@ class GenreCell: UICollectionViewCell {
             genreImageView.image = UIImage(named: "family")
         } else if genre.name == "Documentary" {
             genreImageView.image = UIImage(named: "documentary")
+        } else if genre.name == "Drama" {
+            genreImageView.image = UIImage(named: "drama")
         } else if genre.name == "Fantasy" {
             genreImageView.image = UIImage(named: "fantasy")
         } else if genre.name == "History" {
@@ -69,12 +67,4 @@ class GenreCell: UICollectionViewCell {
             genreImageView.image = UIImage(named: "western")
         }
     }
-    func configureCircle() {
-        self.genreCellView.layer.cornerRadius = min(genreCellView.frame.size.height, genreCellView.frame.size.width) / 2.0
-        genreCellView.layer.masksToBounds = true
-        self.genreCellView.layer.borderColor = Constants.Design.Color.BlackColorCg
-        self.genreCellView.layer.borderWidth = 2
-        self.genreCellView.backgroundColor = Constants.Design.Color.BlackBacgroundColor
-    }
-
 }

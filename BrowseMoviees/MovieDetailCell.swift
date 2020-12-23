@@ -24,8 +24,6 @@ class MovieDetailCell: UITableViewCell {
     @IBOutlet weak var ratingNumberLabel: UILabel!
     @IBOutlet weak var movieTextView: UITextView!
     @IBOutlet weak var viewOutlet: UIView!
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var addToMyListButton: UIButton!
     
     let shapeLayer = CAShapeLayer()
     var movieRating: Double = 10.0
@@ -34,9 +32,6 @@ class MovieDetailCell: UITableViewCell {
     
     func configureUI(movie: Movie) {
         self.movie = movie
-        configureButtonsUI()
-        playButton.layer.cornerRadius = 5
-        addToMyListButton.layer.cornerRadius = 5
         var ganresString = ""
         movieTitleLabel.text = movie.title
         movieTitleLabel.textColor = Constants.Design.Color.WhiteColor
@@ -70,13 +65,15 @@ class MovieDetailCell: UITableViewCell {
     func makeCircleLayer() {
         viewOutlet.backgroundColor = .clear
         //track
+        let center = CGPoint(x: viewOutlet.bounds.width / 2, y: viewOutlet.bounds.height / 2)
         let trackLayer = CAShapeLayer()
-        let circularPath = UIBezierPath(ovalIn: viewOutlet.bounds)
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: 43, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         trackLayer.path = circularPath.cgPath
         trackLayer.strokeColor = Constants.Design.Color.BlackColorCg
         trackLayer.lineWidth = 5
         trackLayer.fillColor = Constants.Design.Color.BlackColorCg
         trackLayer.lineCap = CAShapeLayerLineCap(rawValue: "round")
+        trackLayer.position = center
         viewOutlet.layer.addSublayer(trackLayer)
         //shape
         shapeLayer.path = circularPath.cgPath
@@ -85,7 +82,10 @@ class MovieDetailCell: UITableViewCell {
         shapeLayer.lineWidth = 5
         shapeLayer.fillColor = Constants.Design.Color.BlackBacgroundColorCg
         shapeLayer.lineCap = CAShapeLayerLineCap(rawValue: "round")
+        shapeLayer.position = center
         shapeLayer.strokeEnd = 0
+        shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
+        
         viewOutlet.layer.addSublayer(shapeLayer)
         ratingNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         ratingNumberLabel.centerXAnchor.constraint(equalTo: viewOutlet.centerXAnchor).isActive = true
@@ -104,19 +104,5 @@ class MovieDetailCell: UITableViewCell {
     }
     @IBAction func addToMyListAction(_ sender: UIButton) {
         delegate?.didTapButton(with: movie!)
-    }
-    func configureButtonsUI() {
-        playButton.layer.borderWidth = 2
-        playButton.layer.backgroundColor = Constants.Design.Color.BlackBacgroundColorCg
-        playButton.layer.borderColor = Constants.Design.Color.BlackColorCg
-        playButton.setTitleColor(Constants.Design.Color.White, for: .normal)
-        playButton.isUserInteractionEnabled = false
-        
-        addToMyListButton.layer.borderWidth = 2
-        addToMyListButton.layer.backgroundColor = Constants.Design.Color.BlackBacgroundColorCg
-        addToMyListButton.layer.borderColor = Constants.Design.Color.BlackColorCg
-        addToMyListButton.setTitleColor(Constants.Design.Color.White, for: .normal)
-        addToMyListButton.isUserInteractionEnabled = false
-        
     }
 }
