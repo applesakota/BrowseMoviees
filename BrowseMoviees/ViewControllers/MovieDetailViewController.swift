@@ -62,7 +62,7 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource 
                 fatalError()
             }
             cell.configureUI(movie: movieList!)
-            cell.delegate = self
+//            s
             return cell
         }
         
@@ -73,15 +73,15 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
 }
-extension MovieDetailViewController: MyCollectionViewCellDelegate {
-    func didTapButton(with movie: Movie) {
-        UserManager.shared.addMovie(movie: movie) {
-            self.showMyListMovie()
-        } errorHandler: { (error) in
-            self.presentError(message: error.localizedDescription)
-        }
-
-    }
-    
-    
-}
+//extension MovieDetailViewController: MyCollectionViewCellDelegate {
+//    func didTapButton(with movie: Movie) {
+//        UserManager.shared.addMovie(movie: movie) {
+//            self.showMyListMovie()
+//        } errorHandler: { (error) in
+//            self.presentError(message: error.localizedDescription)
+//        }
+//
+//    }
+//
+//
+//}

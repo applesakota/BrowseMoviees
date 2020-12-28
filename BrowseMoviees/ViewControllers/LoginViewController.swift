@@ -78,6 +78,7 @@ class LoginViewController: UIViewController {
 }
     extension LoginViewController: UITextFieldDelegate {
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            registerButtonUI()
             self.view.endEditing(true)
             return false
         }

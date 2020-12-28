@@ -15,6 +15,5 @@ struct User {
     var password: String
     var date: String?
     var isLogin: Bool
-    var movies: [Movie]? = []
     //photo
 }

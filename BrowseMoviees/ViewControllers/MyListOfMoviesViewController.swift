@@ -16,21 +16,21 @@ class MyListOfMoviesViewController: UIViewController {
     
     var movies: [Movie]? = []
     
-    func observerListenChangesOnPartiesData() {
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshMoviesData), name: NSNotification.Name(UserManager.userMoviesChangedNotificationName), object: nil)
-    }
-    @objc func refreshMoviesData() {
-        self.movies = UserManager.shared.user?.movies ?? []
-        self.myListCollectionView.reloadData()
-        configureUI()
-    }
+//    func observerListenChangesOnPartiesData() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(refreshMoviesData), name: NSNotification.Name(UserManager.userMoviesChangedNotificationName), object: nil)
+//    }
+//    @objc func refreshMoviesData() {
+//        self.movies = UserManager.shared.user?.movies ?? []
+//        self.myListCollectionView.reloadData()
+//        configureUI()
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         myListCollectionView.delegate = self
         myListCollectionView.dataSource = self
-        refreshMoviesData()
-        observerListenChangesOnPartiesData()
+//        refreshMoviesData()
+//        s
         if movies?.count == 0 {
             configureEmptyScreen()
         } else {

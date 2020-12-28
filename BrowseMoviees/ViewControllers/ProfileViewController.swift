@@ -81,7 +81,7 @@ class ProfileViewController: UIViewController {
         profileFullNameTextField.text = UserManager.shared.user?.name
         profilePasswordTextField.text = UserManager.shared.user?.password
         profileEmailTextField.text = UserManager.shared.user?.email
-        profileDateTextField.text = UserManager.shared.user?.name
+        profileDateTextField.text = UserManager.shared.user?.date
     }
     func userInteraction() {
         profileFullNameTextField.isUserInteractionEnabled = false

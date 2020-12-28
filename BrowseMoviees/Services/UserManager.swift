@@ -39,8 +39,8 @@ class UserManager {
         UserDefaults.standard.setValue(true, forKey: UserManager.userDefaultIsLogin)
     }
     
-    func initUser(name: String, email:String, password:String, isLogin: Bool, movies: [Movie]? = []) {
-        let userFromUserDefaults = User(name: name, email: email, password: password, isLogin: isLogin, movies: movies)
+    func initUser(name: String, email:String, password:String, isLogin: Bool) {
+        let userFromUserDefaults = User(name: name, email: email, password: password, isLogin: isLogin)
         user = userFromUserDefaults
     }
     func getLastSignUser() -> User? {
@@ -49,17 +49,17 @@ class UserManager {
            let password = UserDefaults.standard.string(forKey: UserManager.userDefaultPasswordKey)
            
         {
-            initUser(name: name, email: email, password: password, isLogin: UserDefaults.standard.bool(forKey: UserManager.userDefaultIsLogin), movies: [])
+            initUser(name: name, email: email, password: password, isLogin: UserDefaults.standard.bool(forKey: UserManager.userDefaultIsLogin))
         }
         return user
     }
-    func addMovie(movie: Movie?, successHandler: ()->Void, errorHandler: (_ error: Error) -> Void) {
-        if movie != nil {
-            user?.movies?.append(movie!)
-            NotificationCenter.default.post(name: NSNotification.Name(UserManager.userMoviesChangedNotificationName), object: nil)
-            successHandler()
-        } else {
-            errorHandler(UserManagerError.noMovie)
-        }
-    }
+//    func addMovie(movie: Movie?, successHandler: ()->Void, errorHandler: (_ error: Error) -> Void) {
+//        if movie != nil {
+//            user?.movies?.append(movie!)
+//            NotificationCenter.default.post(name: NSNotification.Name(UserManager.userMoviesChangedNotificationName), object: nil)
+//            successHandler()
+//        } else {
+//            errorHandler(UserManagerError.noMovie)
+//        }
+//    }
 }
