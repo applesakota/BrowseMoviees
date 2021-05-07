@@ -2,6 +2,12 @@
 ### BrowseMovies
 
 Find your favourites movies with mobile app
+<br />
+<br />
+
+<p align="center">
+<img src="screens.png">
+</p>
 
 ### About the app
 
