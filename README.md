@@ -6,7 +6,7 @@ Find your favourites movies with mobile app
 <br />
 
 <p align="center">
-<img src="screens.png">
+<img src="backgroundscreens.png">
 </p>
 
 ### About the app
