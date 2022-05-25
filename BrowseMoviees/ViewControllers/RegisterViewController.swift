@@ -26,7 +26,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var dateOfBirtdhLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -96,17 +96,31 @@ class RegisterViewController: UIViewController {
             registerButtonOutlet.isUserInteractionEnabled = true
         }
     }
-    //MARK: IBAction
-    @IBAction func registerButton(_ sender: Any) {
-        AuthenticateManager.shared.createUser(name: fullNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!) { (error) in
-            self.presentError(message: error.localizedDescription)
-            
-        } successHandler: {
-            self.showMainScreen()
+    
+    @discardableResult
+    func presentVerificationEmailAlert() -> (alert: UIAlertController, actions: [MoviesAlertAction]) {
+        self.presentAlert(message: "Verification email sent successfully") {
+            self.showLoginScreen()
         }
+    }
+    
+    
+    //MARK: - User interaction
+    
+    @IBAction func registerButton(_ sender: Any) {
+        
+        apiRegistration(username: emailTextField.text!, password: passwordTextField.text!)
+        
+//        AuthenticateManager.shared.createUser(name: fullNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!) { (error) in
+//            self.presentError(message: error.localizedDescription)
+//
+//        } successHandler: {
+//            self.showMainScreen()
+//        }
     }
 }
 //MARK: Extensions - TextField
+
 extension RegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -156,6 +170,19 @@ extension RegisterViewController: UITextFieldDelegate {
     }
     func hide(label: UILabel) {
         label.isHidden = true
+    }
+    
+    //MARK: - API
+    
+    func apiRegistration(username: String, password: String) {
+        AppGlobals.firebaseService.register(username: username, password: password) { result in
+            switch result {
+            case .success:
+                self.presentVerificationEmailAlert()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }

@@ -81,3 +81,56 @@ extension UIBarButtonItem {
         return menuBarItem
     }
 }
+
+extension UIViewController {
+    
+    struct MoviesAlertAction {
+        let title: String
+        let handler: (()->Swift.Void)?
+    }
+    
+    @discardableResult
+    func presentAlert(title: String = "Info", message: String, completion: (()->Swift.Void)? = nil) -> (alert: UIAlertController, actions: [MoviesAlertAction]) {
+        let actions = [MoviesAlertAction(title: "Ok", handler: completion)]
+        return self.presentAlert(title: title, message: message, actions: actions)
+    }
+    
+    @discardableResult
+    func presentAlert(title: String = "Info", message: String, actions: [MoviesAlertAction]) -> (alert: UIAlertController, actions: [MoviesAlertAction]) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        DispatchQueue.main.async {
+            for action in actions {
+                alert.addAction(UIAlertAction(title: action.title, style: .default, handler: { _ in
+                    action.handler?()
+                }))
+            }
+            self.present(alert, animated: true, completion: nil)
+        }
+        return (alert, actions)
+    }
+    
+}
+
+// MARK: - String
+
+extension String {
+        
+    // Returns true if string has valid email structure
+    var isValidEmail: Bool {
+        let emailRegx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z=]{2,64}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegx)
+        return emailPredicate.evaluate(with: self)
+    }
+    
+    // Returs true if string has valid password structure
+    var isValidPassword: Bool {
+        /// Minimum 8 characters at least 1 Alphabet and 1 Number
+        let predicate = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[$@$#!%*?&])(?=.*[A-Z]).{8,}$")
+        return predicate.evaluate(with: self)
+    }
+    
+    /// Function will trim all whitespaces
+    var trimmingAllSpaces: String {
+        return components(separatedBy: .whitespacesAndNewlines).joined()
+    }
+}

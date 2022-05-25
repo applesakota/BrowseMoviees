@@ -10,6 +10,10 @@ import Foundation
 
 
 class AppGlobals {
+    
+    /// Global instance of firebase service
+    static let firebaseService = FirebaseAuthManager.shared
+    
     static let shared = AppGlobals()
     var genres: [Genre] = []
     
